@@ -36,7 +36,7 @@ export const portfolioPortraitLayout = {
 
   cta: {
     x: 24,
-    y: 304,
+    y: 327,
     width: 216,
     height: 48,
     fontSize: 14,
