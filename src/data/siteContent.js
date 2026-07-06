@@ -285,7 +285,7 @@ export const siteContent = {
         id: 'email',
         icon: 'email',
         title: 'Email',
-        lines: ['hello@manavtechlabs.com']
+        lines: ['Contact@manahtechlabs.com']
       },
       {
         id: 'location',
