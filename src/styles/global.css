@@ -1,0 +1,40 @@
+#root {
+  min-height: 100svh;
+}
+
+:root {
+  --stage-scale: 1;
+  --stage-offset-x: 0px;
+  --layout-base-width: 1920px;
+  --layout-base-height: 1080px;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #01030b;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100svh;
+  overflow-x: hidden;
+  background: #01030b;
+}
+
+.app-root {
+  position: relative;
+  min-height: 100svh;
+  isolation: isolate;
+  background: #01030b;
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+::selection {
+  color: #061126;
+  background: var(--color-cyan);
+}

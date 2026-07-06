@@ -1,0 +1,80 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 0 34px;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  transition:
+    transform var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
+}
+
+.button::before {
+  position: absolute;
+  inset: 0;
+  content: '';
+  opacity: 0;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.38), transparent);
+  transform: translateX(-120%);
+  transition: transform 700ms var(--ease-out), opacity var(--duration-fast) var(--ease-out);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:hover::before {
+  opacity: 1;
+  transform: translateX(120%);
+}
+
+.button--primary {
+  color: #071126;
+  background: linear-gradient(135deg, #ffd94a, var(--color-gold), var(--color-gold-deep));
+  box-shadow: 0 0 22px rgba(255, 196, 0, 0.42), 0 0 54px rgba(255, 196, 0, 0.16);
+}
+
+.button--secondary {
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  color: var(--text-main);
+  background: rgba(2, 8, 24, 0.56);
+}
+
+.button--outline-gold {
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  background: rgba(2, 8, 24, 0.44);
+  box-shadow: 0 0 0 rgba(255, 196, 0, 0);
+}
+
+.button--outline-gold:hover {
+  box-shadow: 0 0 22px rgba(255, 196, 0, 0.42), 0 0 54px rgba(255, 196, 0, 0.16);
+}
+
+.button__arrow {
+  position: relative;
+  z-index: 1;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.button span:first-child {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.section-title-block,
+.neon-card,
+.glow-icon {
+  position: relative;
+}

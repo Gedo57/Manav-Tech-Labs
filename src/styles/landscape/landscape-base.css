@@ -1,0 +1,7 @@
+[data-layout='landscape'] .controlled-section--portrait {
+  display: none;
+}
+
+[data-layout='portrait'] .controlled-section--landscape {
+  display: none;
+}

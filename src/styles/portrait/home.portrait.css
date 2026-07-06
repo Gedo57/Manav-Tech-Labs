@@ -1,0 +1,179 @@
+.home-portrait {
+  background:
+    radial-gradient(circle at 72% 35%, rgba(140, 0, 255, 0.22), transparent 34%),
+    linear-gradient(180deg, #020513 0%, #01030b 100%);
+}
+
+.portrait-home-hero__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(1, 3, 10, 0.96) 0%, rgba(1, 3, 10, 0.64) 42%, rgba(1, 3, 10, 0.94) 100%);
+}
+
+.portrait-home-hero__bg {
+  z-index: 1;
+  mix-blend-mode: screen;
+  mask-image: linear-gradient(180deg, transparent 0%, black 16%, black 74%, transparent 100%);
+}
+
+.portrait-home-hero__visual {
+  z-index: 3;
+}
+
+.portrait-home-hero__visual img {
+  object-fit: contain;
+}
+
+.portrait-home-hero__copy,
+.portrait-home-hero__subtitle,
+.portrait-home-hero__actions,
+.portrait-home-services {
+  z-index: 5;
+}
+
+.portrait-home-hero__title {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.portrait-home-hero__title span {
+  display: block;
+  font-size: inherit;
+  font-weight: var(--weight-black);
+  background: linear-gradient(180deg, #ffffff 0%, #f8f8f9 32%, #c8cad0 64%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.portrait-home-hero__title-accent {
+  background: linear-gradient(90deg, #00b7ff 0%, #0068ff 36%, #5035ff 62%, #8d42ff 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+.portrait-home-hero__subtitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: -0.02em;
+}
+
+.portrait-home-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--portraitHeroActionGap);
+}
+
+.portrait-home-hero__actions .button {
+  height: var(--portraitHeroButtonHeight);
+  min-height: var(--portraitHeroButtonHeight);
+  padding: 0 12px;
+  border-radius: 10px;
+  font-size: var(--portraitHeroButtonFontSize);
+  gap: 8px;
+}
+
+.portrait-home-hero__actions .button__arrow {
+  font-size: 18px;
+}
+
+.portrait-home-hero__actions .button--primary {
+  width: var(--portraitHeroPrimaryWidth);
+}
+
+.portrait-home-hero__actions .button--secondary {
+  width: var(--portraitHeroSecondaryWidth);
+}
+
+.portrait-home-services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(4, 13, 35, 0.58), rgba(2, 7, 22, 0.86));
+  box-shadow: inset 0 0 22px rgba(0, 140, 255, 0.05);
+}
+
+.portrait-home-service {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--portraitHomeServiceIconSize) minmax(0, 1fr);
+  align-items: center;
+  justify-content: start;
+  gap: var(--portraitHomeServiceGap);
+  min-width: 0;
+  padding: 14px 16px;
+}
+
+
+.portrait-home-service:nth-child(odd)::after {
+  position: absolute;
+  top: 14px;
+  right: 0;
+  bottom: 14px;
+  width: 1px;
+  content: '';
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.portrait-home-service:nth-child(-n + 2)::before {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+  height: 1px;
+  content: '';
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.portrait-home-service__icon {
+  width: var(--portraitHomeServiceIconSize);
+  height: var(--portraitHomeServiceIconSize);
+  object-fit: contain;
+  justify-self: center;
+  filter: drop-shadow(0 0 12px rgba(153, 79, 255, 0.75));
+}
+
+.portrait-home-service--cyan 
+.portrait-home-service:nth-child(odd)::after {
+  position: absolute;
+  top: 14px;
+  right: 0;
+  bottom: 14px;
+  width: 1px;
+  content: '';
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.portrait-home-service:nth-child(-n + 2)::before {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+  height: 1px;
+  content: '';
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.portrait-home-service__icon {
+  filter: drop-shadow(0 0 12px rgba(0, 217, 255, 0.75));
+}
+
+.portrait-home-service__title {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  margin: 0;
+  color: var(--text-main);
+  font-size: var(--portraitHomeServiceTitleSize);
+  font-weight: var(--weight-bold);
+  line-height: var(--portraitHomeServiceTitleLineHeight);
+  letter-spacing: -0.025em;
+  text-align: left;
+}

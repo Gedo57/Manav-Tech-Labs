@@ -1,0 +1,47 @@
+.controlled-section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: calc(var(--section-base-height) * var(--stage-scale));
+  min-height: calc(var(--section-base-height) * var(--stage-scale));
+  overflow: hidden;
+  scroll-margin-top: calc(116px * var(--stage-scale));
+  background: #01030b;
+  isolation: isolate;
+}
+
+.controlled-section__stage {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--section-base-width);
+  height: var(--section-base-height);
+  overflow: hidden;
+  transform: translateX(-50%) scale(var(--stage-scale));
+  transform-origin: top center;
+}
+
+.controlled-box {
+  position: absolute;
+}
+
+.controlled-image {
+  position: absolute;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.controlled-image > img,
+.controlled-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Patch 2: stronger anchor offset for the fixed mobile header */
+[data-layout='portrait'] .controlled-section {
+  scroll-margin-top: 96px;
+}

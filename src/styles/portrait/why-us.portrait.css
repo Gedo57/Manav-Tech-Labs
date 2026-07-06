@@ -1,0 +1,138 @@
+.why-us-portrait {
+  background:
+    radial-gradient(circle at 72% 16%, rgba(139, 77, 255, 0.22), transparent 36%),
+    radial-gradient(circle at 14% 80%, rgba(0, 140, 255, 0.12), transparent 32%),
+    linear-gradient(180deg, #01030b 0%, #020513 54%, #01030b 100%);
+}
+
+.why-us-portrait__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(1, 3, 10, 0.97) 0%, rgba(1, 3, 10, 0.78) 38%, rgba(1, 3, 10, 0.96) 100%);
+}
+
+.why-us-portrait__bg {
+  z-index: 1;
+  mix-blend-mode: screen;
+  mask-image: linear-gradient(90deg, transparent 0%, black 20%, black 84%, transparent 100%);
+}
+
+.why-us-portrait__header,
+.why-us-portrait__description,
+.portrait-why-cards,
+.portrait-why-stats {
+  z-index: 4;
+}
+
+.why-us-title--portrait {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.why-us-portrait__description {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  letter-spacing: -0.025em;
+}
+
+.portrait-why-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--portraitWhyCardsGap);
+  align-content: start;
+}
+
+.portrait-why-card {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  height: var(--portraitWhyCardHeight);
+  border-radius: 18px;
+  isolation: isolate;
+  filter: drop-shadow(0 0 12px rgba(139, 77, 255, 0.2));
+}
+
+.portrait-why-card__asset {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.portrait-why-card__content {
+  position: absolute;
+  z-index: 1;
+  top: var(--portraitWhyCardContentY);
+  left: 10px;
+  right: 10px;
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.portrait-why-card__title {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  color: var(--text-main);
+  font-size: var(--portraitWhyCardTitleSize);
+  font-weight: var(--weight-black);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.portrait-why-card__body {
+  width: min(100%, var(--portraitWhyCardBodyWidth));
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--portraitWhyCardBodySize);
+  line-height: var(--portraitWhyCardBodyLineHeight);
+  letter-spacing: -0.025em;
+}
+
+.portrait-why-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--portraitWhyStatsGap);
+}
+
+.portrait-why-stat {
+  display: grid;
+  min-height: 104px;
+  place-items: center;
+  align-content: center;
+  gap: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  background: rgba(4, 13, 35, 0.5);
+  text-align: center;
+}
+
+.portrait-why-stat__icon {
+  width: var(--portraitWhyStatIconSize);
+  height: var(--portraitWhyStatIconSize);
+  object-fit: contain;
+  filter: drop-shadow(0 0 13px rgba(0, 217, 255, 0.82));
+}
+
+.portrait-why-stat--purple .portrait-why-stat__icon {
+  filter: drop-shadow(0 0 13px rgba(195, 82, 255, 0.82));
+}
+
+.portrait-why-stat__value {
+  color: var(--color-gold);
+  font-size: var(--portraitWhyStatValueSize);
+  font-weight: var(--weight-black);
+  line-height: 1;
+}
+
+.portrait-why-stat__label {
+  max-width: 132px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: var(--portraitWhyStatLabelSize);
+  line-height: 1.15;
+}

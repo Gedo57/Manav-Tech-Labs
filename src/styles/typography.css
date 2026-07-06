@@ -1,0 +1,41 @@
+/* Visual match from the supplied references: Montserrat/Poppins style. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: var(--font-primary);
+  font-weight: var(--weight-regular);
+  letter-spacing: -0.008em;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+.hero-title,
+.section-title {
+  font-family: var(--font-primary);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.028em;
+}
+
+p {
+  color: var(--text-muted);
+  font-weight: var(--weight-regular);
+  line-height: 1.58;
+}
+
+.text-gradient-blue-purple {
+  background: linear-gradient(90deg, var(--color-cyan), var(--color-blue) 42%, var(--color-purple) 76%, var(--color-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(90deg, #fff3b0, var(--color-gold), var(--color-gold-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
