@@ -14,8 +14,10 @@ import { PortfolioPortrait } from './sections/portrait/PortfolioPortrait.jsx';
 import { ProcessPortrait } from './sections/portrait/ProcessPortrait.jsx';
 import { ContactPortrait } from './sections/portrait/ContactPortrait.jsx';
 import { ProjectsPage } from './pages/ProjectsPage.jsx';
+import { ProductsPage } from './pages/ProductsPage.jsx';
 
 const PROJECTS_HASH = '#projects';
+const PRODUCTS_HASH = '#products';
 
 function readHash() {
   if (typeof window === 'undefined') {
@@ -26,7 +28,9 @@ function readHash() {
 }
 
 function getRouteFromHash(hash) {
-  return hash === PROJECTS_HASH ? 'projects' : 'landing';
+  if (hash === PROJECTS_HASH) return 'projects';
+  if (hash === PRODUCTS_HASH) return 'products';
+  return 'landing';
 }
 
 function LandingSections({ isPortrait }) {
@@ -71,7 +75,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (route === 'projects') {
+    if (route === 'projects' || route === 'products') {
       window.requestAnimationFrame(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
@@ -79,7 +83,7 @@ export default function App() {
     }
 
     const targetId = hash.startsWith('#') ? hash.slice(1) : '';
-    if (!targetId || targetId === 'projects') return;
+    if (!targetId || targetId === 'projects' || targetId === 'products') return;
 
     window.requestAnimationFrame(() => {
       const target = document.getElementById(targetId);
@@ -91,9 +95,11 @@ export default function App() {
 
   return (
     <div className="app-root" data-layout={layout.mode} data-device={layout.device} data-route={route}>
-      <Header layoutMode={layout.mode} />
+      <Header layoutMode={layout.mode} route={route} />
       {route === 'projects' ? (
         <ProjectsPage layoutMode={layout.mode} />
+      ) : route === 'products' ? (
+        <ProductsPage layoutMode={layout.mode} />
       ) : (
         <LandingSections isPortrait={isPortrait} />
       )}

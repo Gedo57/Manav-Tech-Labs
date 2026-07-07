@@ -13,6 +13,7 @@ export const siteContent = {
     { id: 'services', label: 'Services', href: '#services' },
     { id: 'portfolio', label: 'Portfolio', href: '#portfolio' },
     { id: 'process', label: 'Process', href: '#process' },
+    { id: 'products', label: 'Products', href: '#products' },
     { id: 'contact', label: 'Contact', href: '#contact' }
   ],
 
@@ -233,6 +234,215 @@ export const siteContent = {
       { value: '6', label: 'Game App References' },
       { value: '1', label: 'VR Reference' },
       { value: '1', label: 'Mobile App Listing' }
+    ]
+  },
+
+  productsPage: {
+    titleTop: 'OUR SOFTWARE',
+    titleAccent: 'PRODUCTS',
+    description: 'Powerful software solutions for businesses, developers, and creators.',
+    categories: [
+      { id: 'all', label: 'All Products', icon: '◇', count: 24 },
+      { id: 'developer-tools', label: 'Developer Tools', icon: '◈', count: 7 },
+      { id: 'game-development', label: 'Game Development', icon: '⌘', count: 5 },
+      { id: 'business-productivity', label: 'Business & Productivity', icon: '▣', count: 6 },
+      { id: 'design-creative', label: 'Design & Creative', icon: '✧', count: 3 },
+      { id: 'utilities-security', label: 'Utilities & Security', icon: '▤', count: 3 }
+    ],
+    licenseTypes: ['All Licenses', 'Single User', 'Team / Multi-User', 'Enterprise'],
+    products: [
+      {
+        id: 'codex-ide',
+        name: 'CodeX IDE',
+        categoryId: 'developer-tools',
+        image: 'boxPurple',
+        badge: 'BEST SELLER',
+        badgeTone: 'pink',
+        rating: '4.8',
+        reviews: 128,
+        price: 129,
+        oldPrice: 199,
+        discount: 35,
+        platforms: ['Windows', 'macOS', 'Linux'],
+        shortDescription: 'Smart & lightweight IDE for modern developers with powerful debugging and AI assistance.',
+        description: 'Smart & lightweight IDE built for modern developers. Includes AI assistant, advanced debugging, and multi-language support.',
+        features: [
+          { icon: '⚙', label: 'License', value: 'Single User' },
+          { icon: '▦', label: 'Platform', value: 'Windows, macOS, Linux' },
+          { icon: '↻', label: 'Version', value: 'v2.3.1' },
+          { icon: '▣', label: 'File Size', value: '250 MB' },
+          { icon: '◎', label: 'Languages', value: '50+ Supported' },
+          { icon: '?', label: 'Support', value: '24/7 Premium Support' }
+        ]
+      },
+      {
+        id: 'devkit-pro',
+        name: 'DevKit Pro',
+        categoryId: 'developer-tools',
+        image: 'boxBlue',
+        badge: 'TOP RATED',
+        badgeTone: 'cyan',
+        rating: '4.7',
+        reviews: 84,
+        price: 149,
+        oldPrice: 249,
+        discount: 40,
+        platforms: ['Windows', 'macOS', 'Linux'],
+        shortDescription: 'Complete toolkit for developers with SDKs, tools, libraries, and productivity boosters.',
+        description: 'Complete developer toolkit with SDKs, code utilities, project starters, and productivity boosters for production teams.',
+        features: [
+          { icon: '⚙', label: 'License', value: 'Team Ready' },
+          { icon: '▦', label: 'Platform', value: 'Windows, macOS, Linux' },
+          { icon: '↻', label: 'Version', value: 'v4.1.0' },
+          { icon: '▣', label: 'File Size', value: '410 MB' },
+          { icon: '◎', label: 'Languages', value: '35+ Supported' },
+          { icon: '?', label: 'Support', value: 'Priority Support' }
+        ]
+      },
+      {
+        id: 'gamecraft-engine',
+        name: 'GameCraft Engine',
+        categoryId: 'game-development',
+        image: 'boxBlue',
+        badge: 'NEW ARRIVAL',
+        badgeTone: 'gold',
+        rating: '4.6',
+        reviews: 78,
+        price: 299,
+        oldPrice: 399,
+        discount: 25,
+        platforms: ['Windows', 'macOS', 'Linux'],
+        shortDescription: 'High-performance game engine for 2D & 3D games. Build stunning games faster.',
+        description: 'A game-development suite for prototyping, gameplay systems, 2D/3D scenes, and optimized production builds.',
+        features: [
+          { icon: '⚙', label: 'License', value: 'Commercial' },
+          { icon: '▦', label: 'Platform', value: 'Windows, macOS, Linux' },
+          { icon: '↻', label: 'Version', value: 'v1.8.5' },
+          { icon: '▣', label: 'File Size', value: '1.2 GB' },
+          { icon: '◎', label: 'Languages', value: 'C#, JS, Lua' },
+          { icon: '?', label: 'Support', value: 'Studio Support' }
+        ]
+      },
+      {
+        id: 'uifusion-pro',
+        name: 'UIFusion Pro',
+        categoryId: 'design-creative',
+        image: 'boxPurple',
+        badge: '',
+        badgeTone: 'pink',
+        rating: '4.5',
+        reviews: 56,
+        price: 89,
+        oldPrice: 149,
+        discount: 40,
+        platforms: ['Windows', 'macOS', 'Linux'],
+        shortDescription: 'Design beautiful user interfaces with advanced components and design systems.',
+        description: 'A UI kit and interface production toolkit for components, flows, style systems, and responsive design handoff.',
+        features: [
+          { icon: '⚙', label: 'License', value: 'Single User' },
+          { icon: '▦', label: 'Platform', value: 'Windows, macOS' },
+          { icon: '↻', label: 'Version', value: 'v3.0.2' },
+          { icon: '▣', label: 'File Size', value: '180 MB' },
+          { icon: '◎', label: 'Templates', value: '120+ Included' },
+          { icon: '?', label: 'Support', value: 'Email Support' }
+        ]
+      },
+      {
+        id: 'dbmanager-studio',
+        name: 'DBManager Studio',
+        categoryId: 'business-productivity',
+        image: 'boxBlue',
+        badge: '',
+        badgeTone: 'cyan',
+        rating: '4.6',
+        reviews: 64,
+        price: 99,
+        oldPrice: 159,
+        discount: 38,
+        platforms: ['Windows', 'macOS', 'Linux'],
+        shortDescription: 'Database management tool supporting MySQL, PostgreSQL, MongoDB & more.',
+        description: 'Database management software for querying, monitoring, backups, schema workflows, and multi-database teams.',
+        features: [
+          { icon: '⚙', label: 'License', value: 'Single User' },
+          { icon: '▦', label: 'Platform', value: 'Windows, macOS, Linux' },
+          { icon: '↻', label: 'Version', value: 'v5.2.0' },
+          { icon: '▣', label: 'File Size', value: '320 MB' },
+          { icon: '◎', label: 'Databases', value: '12+ Supported' },
+          { icon: '?', label: 'Support', value: 'Premium Support' }
+        ]
+      },
+      {
+        id: 'securone-antivirus',
+        name: 'SecurOne Antivirus',
+        categoryId: 'utilities-security',
+        image: 'boxGreen',
+        badge: '',
+        badgeTone: 'cyan',
+        rating: '4.7',
+        reviews: 112,
+        price: 49,
+        oldPrice: 79,
+        discount: 38,
+        platforms: ['Windows', 'macOS', 'Linux'],
+        shortDescription: 'Advanced protection for your systems with real-time threat detection.',
+        description: 'Security utility with live monitoring, threat detection, scanning workflows, and lightweight performance tools.',
+        features: [
+          { icon: '⚙', label: 'License', value: 'Single User' },
+          { icon: '▦', label: 'Platform', value: 'Windows, macOS' },
+          { icon: '↻', label: 'Version', value: 'v8.4.2' },
+          { icon: '▣', label: 'File Size', value: '160 MB' },
+          { icon: '◎', label: 'Protection', value: 'Realtime Scan' },
+          { icon: '?', label: 'Support', value: '24/7 Security Support' }
+        ]
+      },
+      {
+        id: 'taskflow-manager',
+        name: 'TaskFlow Manager',
+        categoryId: 'business-productivity',
+        image: 'boxPurple',
+        badge: '',
+        badgeTone: 'pink',
+        rating: '4.6',
+        reviews: 81,
+        price: 59,
+        oldPrice: 99,
+        discount: 40,
+        platforms: ['Windows', 'macOS', 'Linux'],
+        shortDescription: 'Project & task management software to organize teams and increase productivity.',
+        description: 'Productivity system for sprint planning, task status, team workflows, reporting, and project visibility.',
+        features: [
+          { icon: '⚙', label: 'License', value: 'Team / Multi-User' },
+          { icon: '▦', label: 'Platform', value: 'Windows, macOS, Web' },
+          { icon: '↻', label: 'Version', value: 'v2.9.7' },
+          { icon: '▣', label: 'File Size', value: '140 MB' },
+          { icon: '◎', label: 'Boards', value: 'Unlimited' },
+          { icon: '?', label: 'Support', value: 'Business Support' }
+        ]
+      },
+      {
+        id: 'apihub-developer',
+        name: 'APIHub Developer',
+        categoryId: 'developer-tools',
+        image: 'boxBlue',
+        badge: '',
+        badgeTone: 'cyan',
+        rating: '4.6',
+        reviews: 83,
+        price: 79,
+        oldPrice: 129,
+        discount: 39,
+        platforms: ['Windows', 'macOS', 'Linux'],
+        shortDescription: 'Test, design & document APIs easily with powerful tools for developers.',
+        description: 'Developer API workspace for testing endpoints, managing environments, generating docs, and debugging requests.',
+        features: [
+          { icon: '⚙', label: 'License', value: 'Single User' },
+          { icon: '▦', label: 'Platform', value: 'Windows, macOS, Linux' },
+          { icon: '↻', label: 'Version', value: 'v6.1.3' },
+          { icon: '▣', label: 'File Size', value: '220 MB' },
+          { icon: '◎', label: 'Requests', value: 'Unlimited' },
+          { icon: '?', label: 'Support', value: 'Developer Support' }
+        ]
+      }
     ]
   },
 

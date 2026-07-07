@@ -39,6 +39,13 @@ export const assets = {
       startupXpoApp: publicAsset('portfolio/startup-xpo-app.webp')
     }
   },
+  products: {
+    boxBlue: publicAsset('products/b1.png'),
+    boxGreen: publicAsset('products/b2.png'),
+    boxRed: publicAsset('products/b3.png'),
+    boxPurple: publicAsset('products/b4.png'),
+    boxGold: publicAsset('products/b5.png')
+  },
   process: {
     background: publicAsset('process/process-bg.png'),
     timeline: publicAsset('process/process-timeline.png'),

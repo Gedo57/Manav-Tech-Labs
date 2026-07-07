@@ -6,6 +6,30 @@ import { siteContent } from '../../data/siteContent.js';
 import { Button } from './Button.jsx';
 import { LogoMark } from './LogoMark.jsx';
 
+const PRODUCTS_HASH = '#products';
+const PROJECTS_HASH = '#projects';
+const PRODUCTS_SEARCH_EVENT = 'manav-products-search';
+const PRODUCTS_FAVORITES_EVENT = 'manav-products-favorites';
+
+function HeaderQuickIcon({ type, label, onClick }) {
+  const isHeart = type === 'heart';
+
+  return (
+    <button className="site-header-action" type="button" aria-label={label} onClick={onClick}>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        {isHeart ? (
+          <path d="M20.8 5.8a5.1 5.1 0 0 0-7.2 0L12 7.4l-1.6-1.6a5.1 5.1 0 0 0-7.2 7.2L12 21.8l8.8-8.8a5.1 5.1 0 0 0 0-7.2Z" />
+        ) : (
+          <>
+            <circle cx="10.8" cy="10.8" r="6.8" />
+            <path d="m16 16 5 5" />
+          </>
+        )}
+      </svg>
+    </button>
+  );
+}
+
 function getHashId(href = '') {
   return href.startsWith('#') ? href.slice(1) : '';
 }
@@ -14,6 +38,9 @@ function getCurrentSectionId(navItems) {
   if (typeof window === 'undefined') {
     return navItems[0]?.id ?? 'home';
   }
+
+  if (window.location.hash === PRODUCTS_HASH) return 'products';
+  if (window.location.hash === PROJECTS_HASH) return 'portfolio';
 
   const headerOffset = Math.max(88, window.innerHeight * 0.18);
   const currentScrollPoint = window.scrollY + headerOffset;
@@ -34,13 +61,20 @@ function getCurrentSectionId(navItems) {
   return activeId;
 }
 
-export function Header({ layoutMode }) {
+function dispatchProductsHeaderEvent(eventName) {
+  if (typeof window === 'undefined') return;
+
+  window.dispatchEvent(new CustomEvent(eventName));
+}
+
+export function Header({ layoutMode, route }) {
   const isPortrait = layoutMode === 'portrait';
   const layout = isPortrait ? headerPortraitLayout : headerLandscapeLayout;
   const navItems = siteContent.navigation;
   const defaultActiveId = navItems[0]?.id ?? 'home';
   const [activeId, setActiveId] = useState(defaultActiveId);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isProductsRoute = route === 'products' || activeId === 'products';
 
   const headerStyle = cssVars({
     headerStageWidth: layout.stage.width,
@@ -49,7 +83,8 @@ export function Header({ layoutMode }) {
     navFontSize: layout.nav?.fontSize ?? 16,
     navUnderlineY: layout.nav?.underlineY ?? 34,
     headerCtaFontSize: layout.cta?.fontSize ?? 16,
-    headerCtaHeight: layout.cta?.height ?? 56
+    headerCtaHeight: layout.cta?.height ?? 56,
+    headerQuickActionsGap: layout.quickActions?.gap ?? 0
   });
 
   const mobileMenuId = 'mobile-main-menu';
@@ -67,6 +102,16 @@ export function Header({ layoutMode }) {
 
   useEffect(() => {
     const updateActiveSection = () => {
+      if (route === 'products') {
+        setActiveId('products');
+        return;
+      }
+
+      if (route === 'projects') {
+        setActiveId('portfolio');
+        return;
+      }
+
       setActiveId(getCurrentSectionId(navItems));
     };
 
@@ -87,7 +132,7 @@ export function Header({ layoutMode }) {
       window.removeEventListener('resize', updateActiveSection);
       window.removeEventListener('hashchange', updateActiveSection);
     };
-  }, [navItems]);
+  }, [navItems, route]);
 
   useEffect(() => {
     if (!isPortrait && isMenuOpen) {
@@ -133,7 +178,11 @@ export function Header({ layoutMode }) {
   };
 
   return (
-    <header className="site-header site-header--controlled" style={headerStyle}>
+    <header
+      className="site-header site-header--controlled"
+      data-header-route={route ?? activeId}
+      style={headerStyle}
+    >
       <LogoMark
         compact={isPortrait}
         layout={layout.logo}
@@ -174,9 +223,26 @@ export function Header({ layoutMode }) {
           </nav>
         </>
       ) : (
-        <Button variant="outline-gold" href="#contact" className="site-header__cta" style={boxStyle(layout.cta)}>
-          {siteContent.cta.primary}
-        </Button>
+        <>
+          <Button variant="outline-gold" href="#contact" className="site-header__cta" style={boxStyle(layout.cta)}>
+            {siteContent.cta.primary}
+          </Button>
+
+          {layout.quickActions && isProductsRoute && (
+            <div className="site-header__quick-actions" style={boxStyle(layout.quickActions)}>
+              <HeaderQuickIcon
+                type="search"
+                label="Search products"
+                onClick={() => dispatchProductsHeaderEvent(PRODUCTS_SEARCH_EVENT)}
+              />
+              <HeaderQuickIcon
+                type="heart"
+                label="Saved products"
+                onClick={() => dispatchProductsHeaderEvent(PRODUCTS_FAVORITES_EVENT)}
+              />
+            </div>
+          )}
+        </>
       )}
     </header>
   );

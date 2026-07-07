@@ -7,19 +7,19 @@ export const headerLandscapeLayout = {
   // Full logo image from public/assets/logos/manav-logo-full.png
   // x = right/left, y = up/down, width/height = scale
   logo: {
-    x: 66,
-    y: 38,
-    width: 324,
-    height: 60
+    x: 30,
+    y: 24,
+    width: 170,
+    height: 58
   },
 
   // Main nav control
   nav: {
-    x: 642,
+    x: 522,
     y: 55,
     width: 842,
     height: 30,
-    gap: 63,
+    gap: 43,
     fontSize: 16,
     underlineY: 34
   },
@@ -31,5 +31,13 @@ export const headerLandscapeLayout = {
     width: 282,
     height: 56,
     fontSize: 16
+  },
+
+  quickActions: {
+    x: 1786,
+    y: 23,
+    width: 100,
+    height: 34,
+    gap: 34
   }
 };
