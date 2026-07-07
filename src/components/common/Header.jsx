@@ -7,6 +7,8 @@ import { Button } from './Button.jsx';
 import { LogoMark } from './LogoMark.jsx';
 
 const PRODUCTS_HASH = '#products';
+const ENQUIRY_HASH = '#enquiry';
+const CHECKOUT_HASH = '#checkout';
 const PROJECTS_HASH = '#projects';
 const PRODUCTS_SEARCH_EVENT = 'manav-products-search';
 const PRODUCTS_FAVORITES_EVENT = 'manav-products-favorites';
@@ -40,6 +42,8 @@ function getCurrentSectionId(navItems) {
   }
 
   if (window.location.hash === PRODUCTS_HASH) return 'products';
+  if (window.location.hash.startsWith(ENQUIRY_HASH)) return 'products';
+  if (window.location.hash.startsWith(CHECKOUT_HASH)) return 'products';
   if (window.location.hash === PROJECTS_HASH) return 'portfolio';
 
   const headerOffset = Math.max(88, window.innerHeight * 0.18);
@@ -74,7 +78,7 @@ export function Header({ layoutMode, route }) {
   const defaultActiveId = navItems[0]?.id ?? 'home';
   const [activeId, setActiveId] = useState(defaultActiveId);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isProductsRoute = route === 'products' || activeId === 'products';
+  const isProductsRoute = route === 'products' || route === 'checkout';
 
   const headerStyle = cssVars({
     headerStageWidth: layout.stage.width,
@@ -102,7 +106,7 @@ export function Header({ layoutMode, route }) {
 
   useEffect(() => {
     const updateActiveSection = () => {
-      if (route === 'products') {
+      if (route === 'products' || route === 'enquiry' || route === 'checkout') {
         setActiveId('products');
         return;
       }
@@ -233,12 +237,28 @@ export function Header({ layoutMode, route }) {
               <HeaderQuickIcon
                 type="search"
                 label="Search products"
-                onClick={() => dispatchProductsHeaderEvent(PRODUCTS_SEARCH_EVENT)}
+                onClick={() => {
+                  if (route === 'products') {
+                    dispatchProductsHeaderEvent(PRODUCTS_SEARCH_EVENT);
+                    return;
+                  }
+
+                  window.location.hash = PRODUCTS_HASH;
+                  window.setTimeout(() => dispatchProductsHeaderEvent(PRODUCTS_SEARCH_EVENT), 80);
+                }}
               />
               <HeaderQuickIcon
                 type="heart"
                 label="Saved products"
-                onClick={() => dispatchProductsHeaderEvent(PRODUCTS_FAVORITES_EVENT)}
+                onClick={() => {
+                  if (route === 'products') {
+                    dispatchProductsHeaderEvent(PRODUCTS_FAVORITES_EVENT);
+                    return;
+                  }
+
+                  window.location.hash = PRODUCTS_HASH;
+                  window.setTimeout(() => dispatchProductsHeaderEvent(PRODUCTS_FAVORITES_EVENT), 80);
+                }}
               />
             </div>
           )}

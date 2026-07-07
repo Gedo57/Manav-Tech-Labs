@@ -124,8 +124,8 @@ function ProductCard({ product, isSelected, isFavorite, onSelect, onToggleFavori
         </div>
 
         <div className="product-card__actions">
-          <a href="#contact">BUY NOW</a>
-          <a href="#contact">ENQUIRY</a>
+          <a href={`#checkout?product=${encodeURIComponent(product.id)}`}>BUY NOW</a>
+          <a href={`#enquiry?product=${encodeURIComponent(product.id)}`}>ENQUIRY</a>
         </div>
       </div>
     </article>
@@ -295,8 +295,8 @@ function DetailsPanel({ product, isFavorite, onToggleFavorite }) {
           <strong>1</strong>
           <button type="button">+</button>
         </div>
-        <a href="#contact">BUY NOW</a>
-        <a href="#contact">ENQUIRY</a>
+        <a href={`#checkout?product=${encodeURIComponent(product.id)}`}>BUY NOW</a>
+        <a href={`#enquiry?product=${encodeURIComponent(product.id)}`}>ENQUIRY</a>
       </div>
     </aside>
   );

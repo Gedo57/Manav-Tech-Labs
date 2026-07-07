@@ -26,7 +26,7 @@ export const headerLandscapeLayout = {
 
   // Header CTA button control
   cta: {
-    x: 1586,
+    x: 1450,
     y: 36,
     width: 282,
     height: 56,

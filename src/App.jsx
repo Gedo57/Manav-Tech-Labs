@@ -15,9 +15,13 @@ import { ProcessPortrait } from './sections/portrait/ProcessPortrait.jsx';
 import { ContactPortrait } from './sections/portrait/ContactPortrait.jsx';
 import { ProjectsPage } from './pages/ProjectsPage.jsx';
 import { ProductsPage } from './pages/ProductsPage.jsx';
+import { EnquiryPage } from './pages/EnquiryPage.jsx';
+import { CheckoutPage } from './pages/CheckoutPage.jsx';
 
 const PROJECTS_HASH = '#projects';
 const PRODUCTS_HASH = '#products';
+const ENQUIRY_HASH = '#enquiry';
+const CHECKOUT_HASH = '#checkout';
 
 function readHash() {
   if (typeof window === 'undefined') {
@@ -30,6 +34,8 @@ function readHash() {
 function getRouteFromHash(hash) {
   if (hash === PROJECTS_HASH) return 'projects';
   if (hash === PRODUCTS_HASH) return 'products';
+  if (hash.startsWith(ENQUIRY_HASH)) return 'enquiry';
+  if (hash.startsWith(CHECKOUT_HASH)) return 'checkout';
   return 'landing';
 }
 
@@ -75,7 +81,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (route === 'projects' || route === 'products') {
+    if (route === 'projects' || route === 'products' || route === 'enquiry' || route === 'checkout') {
       window.requestAnimationFrame(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
@@ -83,7 +89,7 @@ export default function App() {
     }
 
     const targetId = hash.startsWith('#') ? hash.slice(1) : '';
-    if (!targetId || targetId === 'projects' || targetId === 'products') return;
+    if (!targetId || targetId === 'projects' || targetId === 'products' || targetId.startsWith('enquiry') || targetId.startsWith('checkout')) return;
 
     window.requestAnimationFrame(() => {
       const target = document.getElementById(targetId);
@@ -100,6 +106,10 @@ export default function App() {
         <ProjectsPage layoutMode={layout.mode} />
       ) : route === 'products' ? (
         <ProductsPage layoutMode={layout.mode} />
+      ) : route === 'enquiry' ? (
+        <EnquiryPage layoutMode={layout.mode} />
+      ) : route === 'checkout' ? (
+        <CheckoutPage layoutMode={layout.mode} />
       ) : (
         <LandingSections isPortrait={isPortrait} />
       )}
