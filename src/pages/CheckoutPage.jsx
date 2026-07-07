@@ -250,7 +250,6 @@ export function CheckoutPage({ layoutMode }) {
     [productId, products]
   );
   const [quantity, setQuantity] = useState(1);
-  const [paymentMethod, setPaymentMethod] = useState('credit-card');
 
   const productImage = assets.products[product.image];
   const licenseType = findFeatureValue(product, 'License', 'Single User');
@@ -354,45 +353,22 @@ export function CheckoutPage({ layoutMode }) {
           </div>
 
           <h3>Payment Method</h3>
-          <div className="checkout-payment-options" role="group" aria-label="Payment method">
+          <div className="checkout-payment-options checkout-payment-options--single" role="group" aria-label="Payment method">
             <PaymentOption
-              active={paymentMethod === 'credit-card'}
+              active
               icon="card"
               label="Credit Card"
-              onClick={() => setPaymentMethod('credit-card')}
-            />
-            <PaymentOption
-              active={paymentMethod === 'paypal'}
-              icon="paypal"
-              label="PayPal"
-              onClick={() => setPaymentMethod('paypal')}
-            />
-            <PaymentOption
-              active={paymentMethod === 'bank-transfer'}
-              icon="bank"
-              label="Bank Transfer"
-              onClick={() => setPaymentMethod('bank-transfer')}
             />
           </div>
 
-          {paymentMethod === 'credit-card' ? (
-            <div className="checkout-card-box">
-              <TextInput label="Card Number" required icon="card" placeholder="1234 5678 9012 3456" inputMode="numeric" />
-              <div className="checkout-card-box__grid">
-                <TextInput label="Expiry Date" required icon="card" placeholder="MM / YY" />
-                <TextInput label="CVV" required icon="lock" placeholder="123" inputMode="numeric" />
-                <TextInput label="Name on Card" required icon="user" placeholder="Enter name as on card" />
-              </div>
+          <div className="checkout-card-box">
+            <TextInput label="Card Number" required icon="card" placeholder="1234 5678 9012 3456" inputMode="numeric" />
+            <div className="checkout-card-box__grid">
+              <TextInput label="Expiry Date" required icon="card" placeholder="MM / YY" />
+              <TextInput label="CVV" required icon="lock" placeholder="123" inputMode="numeric" />
+              <TextInput label="Name on Card" required icon="user" placeholder="Enter name as on card" />
             </div>
-          ) : (
-            <div className="checkout-alt-payment">
-              <Icon name={paymentMethod === 'paypal' ? 'paypal' : 'bank'} />
-              <div>
-                <strong>{paymentMethod === 'paypal' ? 'PayPal checkout selected' : 'Bank transfer selected'}</strong>
-                <small>You will receive the next payment instructions after submitting checkout.</small>
-              </div>
-            </div>
-          )}
+          </div>
 
           <label className="checkout-agreement">
             <input type="checkbox" defaultChecked />
