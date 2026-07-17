@@ -10,6 +10,8 @@ const PRODUCTS_HASH = '#products';
 const ENQUIRY_HASH = '#enquiry';
 const CHECKOUT_HASH = '#checkout';
 const PROJECTS_HASH = '#projects';
+const IGAMING_HASH = '#igaming';
+const MOBILE_APPS_HASH = '#mobile-apps';
 const PRODUCTS_SEARCH_EVENT = 'manav-products-search';
 const PRODUCTS_FAVORITES_EVENT = 'manav-products-favorites';
 
@@ -41,6 +43,8 @@ function getCurrentSectionId(navItems) {
     return navItems[0]?.id ?? 'home';
   }
 
+  if (window.location.hash.startsWith(MOBILE_APPS_HASH)) return 'mobile-apps';
+  if (window.location.hash.startsWith(IGAMING_HASH)) return 'igaming';
   if (window.location.hash === PRODUCTS_HASH) return 'products';
   if (window.location.hash.startsWith(ENQUIRY_HASH)) return 'products';
   if (window.location.hash.startsWith(CHECKOUT_HASH)) return 'products';
@@ -108,6 +112,16 @@ export function Header({ layoutMode, route }) {
     const updateActiveSection = () => {
       if (route === 'products' || route === 'enquiry' || route === 'checkout') {
         setActiveId('products');
+        return;
+      }
+
+      if (route === 'mobile-apps') {
+        setActiveId('mobile-apps');
+        return;
+      }
+
+      if (route === 'igaming') {
+        setActiveId('igaming');
         return;
       }
 

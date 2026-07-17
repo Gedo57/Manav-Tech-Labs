@@ -23,6 +23,8 @@
 @import './landscape/contact.landscape.css';
 @import './portrait/contact.portrait.css';
 @import './projects.css';
+@import './igaming.css';
+@import './mobile-apps.css';
 @import './products.css';
 @import './enquiry.css';
 

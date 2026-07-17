@@ -15,11 +15,11 @@ export const headerLandscapeLayout = {
 
   // Main nav control
   nav: {
-    x: 522,
+    x: 300,
     y: 55,
-    width: 842,
+    width: 1110,
     height: 30,
-    gap: 43,
+    gap: 30,
     fontSize: 16,
     underlineY: 34
   },

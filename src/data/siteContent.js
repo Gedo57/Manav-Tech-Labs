@@ -11,6 +11,8 @@ export const siteContent = {
     { id: 'home', label: 'Home', href: '#home' },
     { id: 'about', label: 'About', href: '#about' },
     { id: 'services', label: 'Services', href: '#services' },
+    { id: 'igaming', label: 'iGaming', href: '#igaming' },
+    { id: 'mobile-apps', label: 'Mobile Apps', href: '#mobile-apps' },
     { id: 'portfolio', label: 'Portfolio', href: '#portfolio' },
     { id: 'process', label: 'Process', href: '#process' },
     { id: 'products', label: 'Products', href: '#products' },
@@ -220,6 +222,183 @@ export const siteContent = {
         linkLabel: 'App Store - Xpo Group Leads',
         url: 'https://apps.apple.com/gb/app/xpo-group-leads/id1636866451',
         summary: 'A startup and event-style mobile application reference included as the app listing in the selected Games & Apps portfolio set.'
+      }
+    ]
+  },
+
+
+  igamingPage: {
+    eyebrow: 'iGaming Solutions',
+    titleTop: 'WE BUILD',
+    titleAccent: 'iGAMING SOLUTIONS',
+    strapline: 'Secure. Scalable. Engaging.',
+    description: 'End-to-end iGaming platform development for casino, sportsbook, poker, and more. Built for performance, compliance, and player retention.',
+    primaryCta: 'Start Your Project',
+    secondaryCta: 'View Case Studies',
+    stats: [
+      { value: '100+', label: 'Gaming Projects', icon: 'projects' },
+      { value: '99.9%', label: 'Uptime Focus', icon: 'uptime' },
+      { value: '10M+', label: 'Happy Players', icon: 'players' },
+      { value: '24/7', label: 'Support', icon: 'support' }
+    ],
+    reasons: [
+      {
+        title: 'Compliance Ready',
+        body: 'Architecture prepared for KYC, AML, GDPR, responsible gaming, and market-specific regulatory workflows.',
+        icon: 'compliance'
+      },
+      {
+        title: 'Real-Time Wallets',
+        body: 'Instant deposits, withdrawals, bonuses, and transactional flows designed with security and auditability in mind.',
+        icon: 'walletLive'
+      },
+      {
+        title: 'Multiplayer & Live Features',
+        body: 'Real-time multiplayer, live-dealer integration, chat, presence, tournaments, and leaderboard systems.',
+        icon: 'multiplayer'
+      },
+      {
+        title: 'Scalable Backend',
+        body: 'High-performance backend architecture built to scale, absorb traffic spikes, and support large player bases.',
+        icon: 'backendScale'
+      }
+    ],
+    services: [
+      {
+        title: 'Online Casino Platforms',
+        body: 'Full-featured casino products with slots, table games, live casino, game aggregation, and operator tooling.',
+        icon: 'casino'
+      },
+      {
+        title: 'Sports Betting Platforms',
+        body: 'Pre-match and in-play betting, odds management, bet slips, cash-out, risk controls, and settlement flows.',
+        icon: 'sportsbook'
+      },
+      {
+        title: 'Slot Game Development',
+        body: 'Custom slots with math models, bonus features, RTP configuration, responsive UI, and cross-platform delivery.',
+        icon: 'slots'
+      },
+      {
+        title: 'Poker & Card Games',
+        body: 'Poker, Teen Patti, Rummy, and custom card games with anti-cheat, rooms, tournaments, and live tables.',
+        icon: 'poker'
+      },
+      {
+        title: 'Payment & Wallet Systems',
+        body: 'Secure payment gateways, multi-currency wallets, crypto-ready integrations, reconciliation, and fast settlements.',
+        icon: 'payments'
+      }
+    ],
+    caseStudies: [
+      {
+        title: 'LuckySpin Casino',
+        tag: 'Online Casino',
+        icon: 'slots',
+        points: ['500+ slots and table games', 'Live casino integration', 'Multi-currency wallet', 'Retention-focused player journeys']
+      },
+      {
+        title: 'BetArena Sportsbook',
+        tag: 'Sports Betting',
+        icon: 'sportsbook',
+        points: ['Pre-match and in-play betting', 'Real-time odds engine', 'Cash-out and bet builder', 'Growth-ready active-user architecture']
+      },
+      {
+        title: 'AcePoker Live',
+        tag: 'Poker Platform',
+        icon: 'poker',
+        points: ['Real-time multiplayer tables', 'Tournament and ranking systems', 'Secure and fair-play controls', '24/7 in-app support module']
+      }
+    ]
+  },
+
+
+  mobileAppsPage: {
+    eyebrow: 'Services',
+    titleTop: 'WE BUILD',
+    titleAccent: 'MOBILE APPS',
+    strapline: 'Android, iOS & Cross-Platform Apps That Drive Real Impact.',
+    description: 'We design and develop high-performance mobile apps that are fast, beautiful, secure, and built to scale your idea into a powerful product.',
+    primaryCta: 'Start Your Project',
+    secondaryCta: 'View Case Studies',
+    stats: [
+      { value: '100+', label: 'Apps Delivered', icon: 'apps' },
+      { value: '4+', label: 'Years Experience', icon: 'experience' },
+      { value: '98%', label: 'Client Satisfaction', icon: 'satisfaction' },
+      { value: '24/7', label: 'Support', icon: 'support' }
+    ],
+    reasons: [
+      {
+        title: 'Android & iOS Expertise',
+        body: 'Native apps built for the best performance, user experience, and platform standards.',
+        icon: 'androidIos'
+      },
+      {
+        title: 'Cross-Platform Delivery',
+        body: 'Build once, run everywhere with Flutter and React Native for faster time-to-market and lower cost.',
+        icon: 'crossPlatform'
+      },
+      {
+        title: 'Beautiful UI/UX',
+        body: 'Engaging, pixel-perfect designs that deliver intuitive and delightful user experiences.',
+        icon: 'beautifulUi'
+      },
+      {
+        title: 'Backend & API Integration',
+        body: 'Robust architectures with secure APIs, databases, and third-party integrations that scale.',
+        icon: 'backendApi'
+      }
+    ],
+    services: [
+      {
+        title: 'Android App Development',
+        body: 'High-performance apps for phones, tablets, and Android TV.',
+        icon: 'android'
+      },
+      {
+        title: 'iOS App Development',
+        body: 'Premium native apps for iPhone, iPad, and the Apple ecosystem.',
+        icon: 'ios'
+      },
+      {
+        title: 'Flutter Development',
+        body: 'Cross-platform apps with beautiful UI and native performance.',
+        icon: 'flutter'
+      },
+      {
+        title: 'React Native Development',
+        body: 'Fast, scalable apps with reusable code and native modules.',
+        icon: 'reactNative'
+      },
+      {
+        title: 'UI/UX Design',
+        body: 'User research, wireframes, and polished UI that drives engagement.',
+        icon: 'uiUx'
+      },
+      {
+        title: 'Maintenance & Support',
+        body: 'Updates, feature improvements, and 24/7 maintenance support.',
+        icon: 'support'
+      }
+    ],
+    caseStudies: [
+      {
+        title: 'FitPulse Health App',
+        tag: 'Health & Fitness',
+        image: 'fitPulse',
+        points: ['Activity tracking and analytics', 'Personalized fitness plans', 'Wearables integration']
+      },
+      {
+        title: 'ShopNest Commerce App',
+        tag: 'E-Commerce',
+        image: 'shopNest',
+        points: ['Product catalog and search', 'Secure payments and offers', 'Real-time order tracking']
+      },
+      {
+        title: 'TaskFlow Pro',
+        tag: 'Productivity',
+        image: 'taskFlow',
+        points: ['Task management and kanban', 'Team collaboration', 'Real-time notifications']
       }
     ]
   },

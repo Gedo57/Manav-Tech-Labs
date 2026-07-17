@@ -54,6 +54,41 @@ export const assets = {
   contact: {
     background: publicAsset('contact/contact-bg.png')
   },
+  mobileApps: {
+    hero: publicAsset('mobile-apps/mobile-apps-hero.webp'),
+    icons: {
+      androidIos: publicAsset('mobile-apps/android-ios.webp'),
+      crossPlatform: publicAsset('mobile-apps/cross-platform.webp'),
+      beautifulUi: publicAsset('mobile-apps/beautiful-ui.webp'),
+      backendApi: publicAsset('mobile-apps/backend-api.webp'),
+      android: publicAsset('mobile-apps/android.webp'),
+      ios: publicAsset('mobile-apps/ios.webp'),
+      flutter: publicAsset('mobile-apps/flutter.webp'),
+      reactNative: publicAsset('mobile-apps/react-native.webp'),
+      uiUx: publicAsset('mobile-apps/ui-ux.webp'),
+      support: publicAsset('mobile-apps/support.webp')
+    },
+    cases: {
+      fitPulse: publicAsset('mobile-apps/fitpulse.webp'),
+      shopNest: publicAsset('mobile-apps/shopnest.webp'),
+      taskFlow: publicAsset('mobile-apps/taskflow.webp')
+    }
+  },
+  igaming: {
+    hero: publicAsset('igaming/igaming-hero.webp'),
+    icons: {
+      compliance: publicAsset('igaming/compliance.webp'),
+      walletLive: publicAsset('igaming/wallet-live.webp'),
+      multiplayer: publicAsset('igaming/multiplayer.webp'),
+      backendScale: publicAsset('igaming/backend-scale.webp'),
+      casino: publicAsset('igaming/casino.webp'),
+      sportsbook: publicAsset('igaming/sportsbook.webp'),
+      slots: publicAsset('igaming/slots.webp'),
+      poker: publicAsset('igaming/poker.webp'),
+      payments: publicAsset('igaming/payments.webp'),
+      rtp: publicAsset('igaming/rtp.webp')
+    }
+  },
   whyUs: {
     background: publicAsset('why-us/why-us-bg.png'),
     cards: {

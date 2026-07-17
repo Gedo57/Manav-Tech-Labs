@@ -1,0 +1,180 @@
+/* White-background patch
+   Keeps the existing cards, artwork and brand accents intact while replacing
+   the dark page/section canvas with a clean white surface. */
+
+html,
+body,
+#root,
+.app-root,
+.controlled-section,
+.home-landscape,
+.home-portrait,
+.why-us-landscape,
+.why-us-portrait,
+.services-landscape,
+.services-portrait,
+.portfolio-landscape,
+.portfolio-portrait,
+.process-landscape,
+.process-portrait,
+.contact-landscape,
+.contact-portrait,
+.projects-page,
+.products-page,
+.enquiry-page,
+.checkout-page {
+  background: #ffffff !important;
+}
+
+/* Remove the dark full-page artwork/shade layers so the white background is
+   actually visible. Foreground artwork, cards, panels and device mockups stay. */
+.home-hero__shade,
+.why-us-landscape__shade,
+.why-us-portrait__shade,
+.services-landscape__shade,
+.services-portrait__shade,
+.portfolio-landscape__shade,
+.portfolio-portrait__shade,
+.process-landscape__shade,
+.process-portrait__shade,
+.contact-landscape__shade,
+.contact-portrait__shade,
+.home-hero__bg,
+.portrait-home-hero__bg,
+.why-us-landscape__bg,
+.why-us-portrait__bg,
+.services-landscape__bg,
+.services-portrait__bg,
+.portfolio-landscape__bg,
+.portfolio-portrait__bg,
+.process-landscape__bg,
+.process-portrait__bg,
+.contact-landscape__bg,
+.contact-portrait__bg,
+.projects-page__background,
+.products-page__background,
+.enquiry-page__background,
+.checkout-page__background {
+  display: none !important;
+}
+
+/* Light header */
+.site-header::before {
+  border-bottom-color: rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.94) !important;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.1);
+  backdrop-filter: blur(18px) saturate(1.05);
+  -webkit-backdrop-filter: blur(18px) saturate(1.05);
+}
+
+.site-nav__link,
+.mobile-nav__link {
+  color: #25324a !important;
+}
+
+.site-nav__link:hover,
+.site-nav__link--active,
+.mobile-nav__link:hover,
+.mobile-nav__link--active {
+  color: #008cff !important;
+}
+
+.mobile-menu-button,
+.site-header-action {
+  color: #182237;
+}
+
+.mobile-nav {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.14) !important;
+}
+
+/* Main headings that previously used a white metallic gradient */
+.home-hero__title-line--white,
+.why-us-title__line--white,
+.services-title__line--white,
+.portfolio-title__line--white,
+.process-title__line--white,
+.contact-title__line--white,
+.projects-page__copy h1 span:first-child,
+.enquiry-hero__copy h1 span,
+.checkout-hero__copy h1 span {
+  background: linear-gradient(180deg, #0f172a 0%, #27364f 48%, #0f172a 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  text-shadow: none !important;
+}
+
+/* Copy that sits directly on the page background */
+.home-hero__subtitle,
+.portrait-home-hero__subtitle,
+.why-us-landscape__description,
+.why-us-portrait__description,
+.services-landscape__description,
+.services-portrait__description,
+.portfolio-landscape__description,
+.portfolio-portrait__description,
+.process-landscape__description,
+.process-portrait__description,
+.contact-landscape__description,
+.contact-portrait__description,
+.projects-page__copy p,
+.enquiry-hero__copy p,
+.checkout-hero__copy p,
+.enquiry-breadcrumb,
+.checkout-breadcrumb {
+  color: #526079 !important;
+  text-shadow: none !important;
+}
+
+.enquiry-breadcrumb a,
+.enquiry-breadcrumb strong,
+.checkout-breadcrumb a,
+.checkout-breadcrumb strong {
+  color: #172033 !important;
+}
+
+/* Secondary hero action needs contrast on white. */
+.home-hero__actions .button--secondary,
+.portrait-home-hero__actions .button--secondary,
+.projects-page__actions .button--secondary {
+  border-color: rgba(15, 23, 42, 0.46);
+  color: #172033;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* Text-only elements that are not inside the retained dark cards/panels. */
+.services-stack {
+  border-top-color: rgba(15, 23, 42, 0.14);
+}
+
+.services-stack__item {
+  color: #4b5870;
+}
+
+.services-stack__item::after {
+  background: rgba(15, 23, 42, 0.28);
+}
+
+.contact-info-item__copy strong {
+  color: #172033;
+}
+
+.contact-info-item__copy span {
+  color: #526079;
+}
+
+/* Make the isolated project-page hero sit naturally on white while preserving
+   the existing dark statistic and project cards. */
+.projects-page__eyebrow {
+  background: rgba(0, 140, 255, 0.07);
+}
+
+/* Subtle separation where the product workspace meets the white page. */
+.products-page__shell {
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+}
