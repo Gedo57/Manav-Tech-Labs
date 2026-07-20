@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from 'react';
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { Header } from './components/common/Header.jsx';
+import { Footer } from './components/common/Footer.jsx';
 import { useLayoutMode } from './hooks/useLayoutMode.js';
 import { AboutPage } from './pages/AboutPage.jsx';
 import { CheckoutPage } from './pages/CheckoutPage.jsx';
@@ -99,6 +100,7 @@ export default function App() {
   const layout = useLayoutMode();
   const location = useLocation();
   const route = getRouteId(location.pathname);
+  const showFooter = route !== 'checkout' && route !== 'enquiry';
 
   return (
     <div className="app-root" data-layout={layout.mode} data-device={layout.device} data-route={route}>
@@ -125,6 +127,7 @@ export default function App() {
           <Route path="*" element={<Navigate to={ROUTES.home} replace />} />
         </Routes>
       </div>
+      {showFooter && <Footer />}
     </div>
   );
 }

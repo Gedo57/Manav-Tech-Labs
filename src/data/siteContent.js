@@ -798,12 +798,12 @@ export const siteContent = {
     titleAccent: 'PRODUCTS',
     description: 'Powerful software solutions for businesses, developers, and creators.',
     categories: [
-      { id: 'all', label: 'All Products', icon: '◇', count: 24 },
-      { id: 'developer-tools', label: 'Developer Tools', icon: '◈', count: 7 },
-      { id: 'game-development', label: 'Game Development', icon: '⌘', count: 5 },
-      { id: 'business-productivity', label: 'Business & Productivity', icon: '▣', count: 6 },
-      { id: 'design-creative', label: 'Design & Creative', icon: '✧', count: 3 },
-      { id: 'utilities-security', label: 'Utilities & Security', icon: '▤', count: 3 }
+      { id: 'all', label: 'All Products', icon: '◇', count: 8 },
+      { id: 'developer-tools', label: 'Developer Tools', icon: '◈', count: 3 },
+      { id: 'game-development', label: 'Game Development', icon: '⌘', count: 1 },
+      { id: 'business-productivity', label: 'Business & Productivity', icon: '▣', count: 2 },
+      { id: 'design-creative', label: 'Design & Creative', icon: '✧', count: 1 },
+      { id: 'utilities-security', label: 'Utilities & Security', icon: '▤', count: 1 }
     ],
     licenseTypes: ['All Licenses', 'Single User', 'Team / Multi-User', 'Enterprise'],
     products: [
@@ -1002,6 +1002,51 @@ export const siteContent = {
     ]
   },
 
+
+  productsEditorial: {
+    introduction: {
+      eyebrow: 'Products & Business Systems',
+      title: 'Digital Products Built Around Practical Workflows',
+      lead: 'Product technology should support a clear user journey, reliable operations and measurable business value.',
+      paragraphs: [
+        'Manav Tech Labs develops custom software, SaaS platforms, CRM and ERP systems, AI-enabled tools and connected digital products for startups, SMEs and enterprises.',
+        'Each product can combine interface design, application engineering, backend services, data, cloud deployment and continuous improvement in one delivery workflow.'
+      ],
+      items: [
+        { id: 'experience', kicker: 'Product', title: 'Clear User Experience', body: 'Flows, responsive interfaces and product rules are designed around the people using the system.', tone: 'cyan' },
+        { id: 'systems', kicker: 'Engineering', title: 'Connected Systems', body: 'Frontend, backend, APIs, data and integrations are aligned around the product scope.', tone: 'purple' },
+        { id: 'operations', kicker: 'Business', title: 'Operational Value', body: 'Automation, analytics and admin tools reduce manual work and improve day-to-day visibility.', tone: 'gold' }
+      ]
+    },
+    scope: {
+      eyebrow: 'Scope & Customization',
+      title: 'Configured Around the Product Requirement',
+      lead: 'The delivery scope is selected around target users, platforms, integrations and the operational environment.',
+      items: [
+        { id: 'custom-scope', kicker: '01', title: 'Custom Scope', body: 'Requirements, modules and milestones are defined around the approved product goal.', points: ['Mobile, web or cross-platform', 'Customer and admin journeys', 'Configurable business rules'], tone: 'blue' },
+        { id: 'integrations', kicker: '02', title: 'Integrations', body: 'Products can connect to business data, messaging, maps, payments and third-party services.', points: ['APIs and data exchange', 'Authentication and notifications', 'Operational integrations'], tone: 'purple' },
+        { id: 'scalability', kicker: '03', title: 'Scalable Delivery', body: 'Architecture, deployment and monitoring are planned for maintainability and future growth.', points: ['Cloud-ready services', 'Deployment pipelines', 'Support and optimization'], tone: 'cyan' }
+      ]
+    },
+    delivery: {
+      eyebrow: 'Implementation & Support',
+      title: 'From Discovery to Continuous Improvement',
+      lead: 'A connected delivery workflow keeps planning, engineering, release and post-launch support aligned.',
+      items: [
+        { id: 'discovery', number: '01', title: 'Discovery & Planning', body: 'Goals, users, technical requirements and delivery milestones are defined before development begins.' },
+        { id: 'design', number: '02', title: 'Design & Development', body: 'User flows, responsive interfaces, frontend, backend and integrations are built against the approved scope.' },
+        { id: 'quality', number: '03', title: 'Testing & Deployment', body: 'Functional QA, device validation, regression testing and deployment readiness are reviewed before handoff.' },
+        { id: 'support', number: '04', title: 'Support & Optimization', body: 'Maintenance, product updates and planned improvements can continue after the production release.' }
+      ]
+    },
+    cta: {
+      eyebrow: 'Custom Product Development',
+      title: 'Need a Product Built Around Your Workflow?',
+      body: 'Share the users, platforms and business requirements. We will define the practical scope, milestones and delivery model.',
+      button: 'Discuss Your Product'
+    }
+  },
+
   process: {
     titleTop: 'OUR PROCESS',
     description: 'A clear workflow from concept to launch.',
@@ -1111,7 +1156,7 @@ export const siteContent = {
         id: 'email',
         icon: 'email',
         title: 'Email',
-        lines: ['Contact@manahtechlabs.com']
+        lines: ['contact@manavtechlabs.com']
       },
       {
         id: 'location',
@@ -1128,7 +1173,7 @@ export const siteContent = {
     ],
     form: {
       submit: 'Send Message',
-      projectTypes: ['Game Development', 'Mobile App', 'Web App', 'UI/UX Design', 'Backend & APIs'],
+      projectTypes: ['Mobile App Development', 'Web Platform', 'Game Development', 'Gaming Technology', 'AI & Automation', 'UI/UX Design', 'CRM / ERP Development', 'Cloud & DevOps', 'Other'],
       budgetRanges: ['$1k - $5k', '$5k - $10k', '$10k - $25k', '$25k+']
     },
     faqTitle: 'FAQ',
@@ -1158,6 +1203,104 @@ export const siteContent = {
         answer: 'Yes. We can build APIs, databases, realtime systems, multiplayer logic, and scalable backend architecture.'
       }
     ]
+  },
+
+
+  contactEditorial: {
+    brief: {
+      eyebrow: 'Project Brief',
+      title: 'Tell Us What You Are Building',
+      lead: 'A concise brief helps the team understand the product goal, current stage and most important delivery constraints.',
+      paragraphs: [
+        'You do not need a complete specification before contacting us. A product idea, an existing build or a defined backlog can all be used as the starting point for discovery.',
+        'The most useful information is the target user, required platforms, core features, current product stage and the result you want the next milestone to achieve.'
+      ],
+      points: [
+        { title: 'Product Goal', body: 'Describe the user problem, business objective or gameplay experience.' },
+        { title: 'Platforms & Features', body: 'List the required platforms, integrations and highest-priority features.' },
+        { title: 'Current Stage', body: 'Clarify whether the work starts from an idea, design, prototype or existing product.' },
+        { title: 'Delivery Priorities', body: 'Share target timing, dependencies and any important technical constraints.' }
+      ]
+    },
+    nextSteps: {
+      eyebrow: 'What Happens Next',
+      title: 'A Clear Path From Inquiry to Scope',
+      lead: 'The first steps focus on understanding the requirement and defining a practical delivery structure.',
+      items: [
+        { id: 'review', number: '01', title: 'Requirement Review', body: 'We review the product goal, platforms, features and current stage.' },
+        { id: 'discovery', number: '02', title: 'Discovery Discussion', body: 'The team clarifies users, workflows, technical needs and delivery risks.' },
+        { id: 'scope', number: '03', title: 'Scope & Milestones', body: 'You receive a proposed scope, milestone path and suitable engagement option.' }
+      ]
+    },
+    engagement: {
+      eyebrow: 'Ways to Work With Us',
+      title: 'Engagement Models for Different Delivery Needs',
+      lead: 'The structure can match a defined project, an existing team or an ongoing product roadmap.',
+      items: [
+        { id: 'fixed', kicker: 'Defined Scope', title: 'Fixed-Cost Project', body: 'Milestone-based delivery for a clearly defined scope, timeline and acceptance criteria.', tone: 'blue' },
+        { id: 'dedicated', kicker: 'Focused Capacity', title: 'Dedicated Developers', body: 'Dedicated engineering capacity for backlogs, integrations, improvements and ongoing releases.', tone: 'purple' },
+        { id: 'retainer', kicker: 'Long-Term Support', title: 'Team Augmentation & Retainers', body: 'Flexible support for continuous product development, maintenance and roadmap execution.', tone: 'cyan' }
+      ]
+    },
+    confidentiality: {
+      eyebrow: 'Confidentiality & Trust',
+      title: 'Project Information Is Handled Responsibly',
+      lead: 'Clear communication, protected information and accountable product execution are built into the delivery approach.',
+      panelTitle: 'NDA-Aware Collaboration',
+      body: 'Project requirements, source code, client data and commercial information are handled according to the agreed engagement terms. Public case-study details and client references are used only with appropriate approval.',
+      points: [
+        'Confidential project details can be reviewed under NDA',
+        'Scope, milestones and responsibilities remain visible',
+        'Client information is used only for the agreed delivery work',
+        'Handoff and support terms are defined with the engagement'
+      ]
+    },
+    cta: {
+      eyebrow: 'Start the Conversation',
+      title: 'Share the Product Goal and Next Milestone',
+      body: 'Use the project form above to send the core requirement. The team can then review the most practical next step.',
+      button: 'Go to Project Form'
+    }
+  },
+
+  footer: {
+    description: 'A technology development partner for multiplayer games, mobile applications, web platforms, AI automation and scalable digital products.',
+    groups: [
+      {
+        title: 'Company',
+        links: [
+          { label: 'About', href: '/about' },
+          { label: 'Our Process', href: '/process' },
+          { label: 'Portfolio', href: '/portfolio' },
+          { label: 'Contact', href: '/contact' }
+        ]
+      },
+      {
+        title: 'Capabilities',
+        links: [
+          { label: 'Services', href: '/services' },
+          { label: 'Mobile Apps', href: '/mobile-apps' },
+          { label: 'iGaming Solutions', href: '/igaming' },
+          { label: 'Software Products', href: '/products' }
+        ]
+      },
+      {
+        title: 'Selected Work',
+        links: [
+          { label: 'Trinkoo', href: '/portfolio#case-study-trinkoo' },
+          { label: 'Pavan', href: '/portfolio#case-study-pavan' },
+          { label: "Liar's Dice", href: '/portfolio#case-study-liars-dice' },
+          { label: '3P Malaysian Mahjong', href: '/portfolio#case-study-malaysian-mahjong' }
+        ]
+      }
+    ],
+    trust: [
+      { value: '100+', label: 'Businesses Supported' },
+      { value: '5', label: 'Selected Products' },
+      { value: 'iOS + Android', label: 'Platform Coverage' },
+      { value: 'Global', label: 'Delivery Reach' }
+    ],
+    disclaimer: 'Manav Tech Labs provides technology development services. Clients are responsible for compliance with applicable laws, regulations, licensing requirements and platform policies in their target jurisdictions.'
   },
 
   whyUs: {

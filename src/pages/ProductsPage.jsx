@@ -4,6 +4,7 @@ import { productsPageLayout as layout } from '../config/layout/products.layout.j
 import { cssVars } from '../config/layout/styleHelpers.js';
 import { assets } from '../data/assets.js';
 import { siteContent } from '../data/siteContent.js';
+import { ProductsEditorialSections } from '../sections/products/ProductsEditorialSections.jsx';
 
 const PRICE_MAX = 1000;
 const FAVORITES_STORAGE_KEY = 'manav-products-favorites';
@@ -476,13 +477,13 @@ export function ProductsPage({ layoutMode }) {
             </div>
           )}
 
-          <nav className="products-pagination" aria-label="Product pagination">
-            <button type="button" aria-label="Previous page">‹</button>
-            <button className="products-pagination__active" type="button">1</button>
-            <button type="button">2</button>
-            <button type="button">3</button>
-            <button type="button" aria-label="Next page">›</button>
-          </nav>
+          {products.length > 12 && (
+            <nav className="products-pagination" aria-label="Product pagination">
+              <button type="button" aria-label="Previous page">‹</button>
+              <button className="products-pagination__active" type="button">1</button>
+              <button type="button" aria-label="Next page">›</button>
+            </nav>
+          )}
         </section>
 
         {selectedProduct && (
@@ -502,6 +503,8 @@ export function ProductsPage({ layoutMode }) {
         onSelectProduct={setSelectedProductId}
         onToggleFavorite={toggleFavorite}
       />
+
+      <ProductsEditorialSections />
     </main>
   );
 }

@@ -72,9 +72,9 @@ function ContactForm() {
 
   return (
     <form className="contact-form contact-form--portrait controlled-box" style={{ ...boxStyle(layout.form), ...vars }} onSubmit={(event) => event.preventDefault()}>
-      <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" />
-      <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" />
-      <select name="projectType" aria-label="Project Type" defaultValue="">
+      <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" autoComplete="name" required />
+      <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" autoComplete="email" required />
+      <select name="projectType" aria-label="Project Type" defaultValue="" required>
         <option value="" disabled>Project Type</option>
         {contact.form.projectTypes.map((item) => (
           <option key={item} value={item}>{item}</option>
@@ -86,7 +86,7 @@ function ContactForm() {
           <option key={item} value={item}>{item}</option>
         ))}
       </select>
-      <textarea name="message" placeholder="Tell us about your project..." aria-label="Tell us about your project" />
+      <textarea name="message" placeholder="Tell us about your project..." aria-label="Tell us about your project" required />
       <button type="submit" className="contact-form__button">
         <span>{contact.form.submit}</span>
         <span aria-hidden="true">→</span>

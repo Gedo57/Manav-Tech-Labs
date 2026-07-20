@@ -4,7 +4,7 @@ import { siteContent } from '../../data/siteContent.js';
 
 function CaseStudyNote({ item }) {
   return (
-    <article className={`portfolio-case-note portfolio-case-note--${item.tone ?? 'blue'}`}>
+    <article id={`case-study-${item.id}`} className={`portfolio-case-note portfolio-case-note--${item.tone ?? 'blue'}`}>
       <header className="portfolio-case-note__header">
         <span>{item.category}</span>
         <h3>{item.title}</h3>

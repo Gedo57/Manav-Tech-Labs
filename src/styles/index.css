@@ -6,6 +6,7 @@
 @import './common/header.css';
 @import './common/components.css';
 @import './common/editorial-sections.css';
+@import './common/footer.css';
 @import './common/controlled-section.css';
 @import './landscape/landscape-base.css';
 @import './portrait/portrait-base.css';
@@ -32,6 +33,8 @@
 @import './igaming.css';
 @import './mobile-apps.css';
 @import './products.css';
+@import './products-content.css';
+@import './contact-content.css';
 @import './enquiry.css';
 
 @import './checkout.css';
