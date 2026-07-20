@@ -13,6 +13,11 @@ export const assets = {
       phone: publicAsset('home/icon-phone.png'),
       design: publicAsset('home/icon-design.png'),
       backend: publicAsset('home/icon-backend.png')
+    },
+    selectedWork: {
+      trinkoo: publicAsset('home/selected-work/trinkoo.webp'),
+      pavan: publicAsset('home/selected-work/pavan.webp'),
+      liarsDice: publicAsset('home/selected-work/liars-dice.webp')
     }
   },
   services: {

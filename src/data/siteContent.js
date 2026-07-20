@@ -57,6 +57,206 @@ export const siteContent = {
     ]
   },
 
+  homeEditorial: {
+    about: {
+      eyebrow: 'About Manav Tech Labs',
+      title: 'A Technology Partner Built for Delivery',
+      lead: 'Strategy, design, engineering and continuous improvement in one connected workflow.',
+      paragraphs: [
+        'Manav Tech Labs is a technology consulting and software development services provider specializing in mobile applications, multiplayer games, web platforms, AI-powered solutions and digital transformation.',
+        'We work with startups, SMEs and enterprises to turn product requirements into scalable digital experiences, from early planning and interface design through engineering, deployment and post-launch improvement.'
+      ],
+      metrics: [
+        { value: '100+', label: 'Businesses Supported' },
+        { value: '5', label: 'Selected Products' },
+        { value: 'iOS + Android', label: 'Platform Coverage' },
+        { value: 'Global', label: 'Delivery Reach' }
+      ]
+    },
+    capabilities: {
+      eyebrow: 'What We Build',
+      title: 'Connected Capabilities for Digital Products',
+      lead: 'Focused product teams combine experience design, application engineering and operational systems around each delivery goal.',
+      items: [
+        {
+          id: 'game-systems',
+          kicker: 'Game Technology',
+          title: 'Game & Multiplayer Systems',
+          body: 'Rule-driven gameplay, real-time rooms, matchmaking, turn validation, progression, rewards and live-operation foundations for engaging game experiences.',
+          points: ['Real-time and turn-based play', 'Rooms, bots and matchmaking', 'Economy and progression systems'],
+          icon: 'gamepad',
+          tone: 'purple'
+        },
+        {
+          id: 'digital-products',
+          kicker: 'Product Engineering',
+          title: 'Mobile & Web Products',
+          body: 'Android, iOS and responsive web products built around clear user journeys, dependable APIs and scalable technical architecture.',
+          points: ['Mobile applications', 'Web platforms and SaaS', 'Dashboards, portals and APIs'],
+          icon: 'phone',
+          tone: 'blue'
+        },
+        {
+          id: 'automation-systems',
+          kicker: 'Business Intelligence',
+          title: 'AI & Business Automation',
+          body: 'Practical AI assistants, OCR, workflow automation, CRM and ERP integrations that reduce repetitive work and improve operational visibility.',
+          points: ['AI assistants and GPT integration', 'OCR and workflow automation', 'CRM, ERP and analytics'],
+          icon: 'backend',
+          tone: 'cyan'
+        }
+      ]
+    },
+    selectedWork: {
+      eyebrow: 'Selected Work',
+      title: 'Products Delivered Across Games and Mobile',
+      lead: 'A focused selection of public products and multiplayer systems described in the Manav Tech Labs company profile.',
+      projects: [
+        {
+          id: 'trinkoo',
+          title: 'Trinkoo',
+          category: 'Social Entertainment App',
+          client: 'Trinkoo Technologies',
+          summary: 'A unified mobile experience combining games, live streaming, chat, check-ins and reward systems.',
+          outcomes: ['4.8K+ tracked Android downloads', '10+ multiplayer games in one platform', '4 engagement systems delivered'],
+          image: 'trinkoo',
+          href: '/portfolio#project-directory',
+          tone: 'purple'
+        },
+        {
+          id: 'pavan',
+          title: 'Pavan',
+          category: 'Mobility & Ride Booking',
+          client: 'Parvatiya Vahan Samarthan Samiti',
+          summary: 'A cross-platform mobility product supporting structured booking, scheduling, location and payment flows.',
+          outcomes: ['Published on Android and iOS', '1K+ Google Play downloads', '4 ride categories and 3 payment methods'],
+          image: 'pavan',
+          href: '/portfolio#project-directory',
+          tone: 'gold'
+        },
+        {
+          id: 'liars-dice',
+          title: "Liar's Dice",
+          category: 'Multiplayer Bluffing Game',
+          client: 'Confidential Gaming Client',
+          summary: 'A responsive multiplayer dice experience with validated turns, real-time rooms and bot-supported gameplay.',
+          outcomes: ['Supports 2-4 players', '4 validated core turn actions', 'Desktop, landscape and portrait layouts'],
+          image: 'liarsDice',
+          href: '/portfolio#project-directory',
+          tone: 'blue'
+        }
+      ]
+    },
+    delivery: {
+      eyebrow: 'Why Clients Work With Us',
+      title: 'Clear Delivery from Scope to Support',
+      lead: 'Each engagement is structured around accountable milestones, practical technical decisions and long-term product value.',
+      items: [
+        {
+          id: 'end-to-end',
+          kicker: '01',
+          title: 'End-to-End Delivery',
+          body: 'Discovery, UX, engineering, QA, deployment and post-launch support are connected in one delivery workflow.',
+          tone: 'blue'
+        },
+        {
+          id: 'communication',
+          kicker: '02',
+          title: 'Transparent Communication',
+          body: 'Clear scope, regular progress updates, visible risks and accountable handoff keep decisions aligned.',
+          tone: 'cyan'
+        },
+        {
+          id: 'agile',
+          kicker: '03',
+          title: 'Agile Execution',
+          body: 'Milestone-based delivery provides working progress, practical reviews and focused iteration throughout the project.',
+          tone: 'purple'
+        },
+        {
+          id: 'support',
+          kicker: '04',
+          title: 'Continuous Improvement',
+          body: 'Deployment support, maintenance and product optimization help teams improve the experience after launch.',
+          tone: 'gold'
+        }
+      ]
+    },
+    cta: {
+      eyebrow: 'Start a Conversation',
+      title: 'Have a Product Idea?',
+      body: 'Let us turn your requirements into a reliable mobile application, multiplayer game, web platform or automation system.',
+      button: 'Start Your Project'
+    }
+  },
+
+  aboutEditorial: {
+    introduction: {
+      eyebrow: 'Who We Are',
+      title: 'Technology, Product Thinking and Reliable Delivery',
+      lead: 'A connected team for mobile applications, multiplayer games, web platforms and business automation.',
+      paragraphs: [
+        'Manav Tech Labs is a technology consulting and software development services provider working with startups, SMEs and enterprises across global markets.',
+        'We connect product strategy, interface design, engineering, testing and post-launch improvement so clients can move from requirements to dependable digital products through one delivery workflow.'
+      ],
+      vision: {
+        kicker: 'Vision',
+        title: 'A Globally Trusted Technology Partner',
+        body: 'To become a globally trusted technology partner for innovative software, gaming and AI solutions.',
+        tone: 'cyan'
+      },
+      mission: {
+        kicker: 'Mission',
+        title: 'Build with Quality and Transparency',
+        body: 'To build scalable, high-quality digital products through innovation, transparency and long-term partnerships while delivering exceptional customer experiences.',
+        tone: 'purple'
+      }
+    },
+    highlights: {
+      eyebrow: 'Business Highlights',
+      title: 'Built for Ambitious Digital Products',
+      lead: 'Practical delivery principles keep product decisions, technical execution and client expectations aligned.',
+      items: [
+        { id: 'end-to-end', kicker: '01', title: 'End-to-End Delivery', body: 'Discovery, UX, engineering, QA, deployment and post-launch support in one connected workflow.', tone: 'blue' },
+        { id: 'dedicated-team', kicker: '02', title: 'Dedicated Team', body: 'Cross-functional roles are aligned to the product scope, milestones and technical requirements.', tone: 'purple' },
+        { id: 'agile', kicker: '03', title: 'Agile Execution', body: 'Milestone-based delivery provides visible progress, focused reviews and practical iteration.', tone: 'cyan' },
+        { id: 'cost-effective', kicker: '04', title: 'Cost-Effective Delivery', body: 'Lean planning and reusable systems are selected around business value and long-term maintainability.', tone: 'gold' },
+        { id: 'global', kicker: '05', title: 'Global Support', body: 'Remote-first collaboration supports clients and product teams working across different markets.', tone: 'blue' },
+        { id: 'transparent', kicker: '06', title: 'Transparent Communication', body: 'Clear scope, regular updates, risk visibility and accountable handoff guide every engagement.', tone: 'purple' }
+      ]
+    },
+    team: {
+      eyebrow: 'Leadership & Delivery Team',
+      title: 'The People Behind Product Delivery',
+      lead: 'A focused team covering strategy, full-stack engineering, CRM automation and game systems.',
+      members: [
+        { id: 'shubham', initials: 'SK', name: 'Shubham Kumar', role: 'Founder & CEO', focus: 'Business growth · Client partnerships · Product direction', body: 'Leads company strategy, client alignment, product prioritization and delivery governance across mobile, web, gaming and automation engagements.' },
+        { id: 'ankit', initials: 'AA', name: 'Ankit Awasthi', role: 'Full-Stack Developer', focus: 'Web · Frontend · APIs', body: 'Builds responsive interfaces, backend services, APIs and integrations for scalable web and product platforms.' },
+        { id: 'rahul', initials: 'RC', name: 'Rahul Chauhan', role: 'Full-Stack Developer', focus: 'Backend · Real-time systems', body: 'Develops authentication, data, rooms, admin tools and real-time multiplayer services.' },
+        { id: 'mithra', initials: 'M', name: 'Mithra', role: 'Zoho Developer', focus: 'CRM · Workflow automation', body: 'Delivers Zoho CRM solutions, operational workflows, integrations and business data management.' },
+        { id: 'ahmed', initials: 'AM', name: 'Ahmed Mostafa', role: 'Game Developer', focus: 'Gameplay · Multiplayer · Economy', body: 'Develops gameplay logic, multiplayer systems, progression, game economies and responsive game interfaces.' }
+      ]
+    },
+    collaboration: {
+      eyebrow: 'Client Collaboration',
+      title: 'Clear, Protected and Accountable',
+      lead: 'Project information, milestones and technical responsibilities are handled through a transparent delivery structure.',
+      points: [
+        'NDA-aware collaboration and protected project information',
+        'Milestone visibility with regular product reviews',
+        'Quality assurance at each development stage',
+        'Deployment-ready handoff and support options'
+      ],
+      industries: ['Gaming', 'Fantasy Sports', 'Mobility', 'Social Entertainment', 'Healthcare', 'Education', 'E-Commerce', 'Logistics', 'Travel & Tourism', 'Fintech', 'SaaS', 'Enterprise'],
+      cta: {
+        eyebrow: 'Work With Manav Tech Labs',
+        title: 'Build Your Next Digital Product',
+        body: 'Discuss your product requirements, delivery goals and preferred engagement model with our team.',
+        button: 'Start Your Project'
+      }
+    }
+  },
+
   services: {
     titleTop: 'OUR',
     titleAccent: 'SERVICES',
@@ -101,6 +301,70 @@ export const siteContent = {
     ],
     // Hidden in the UI for now. Add names here again only if you want the tech strip back.
     stack: []
+  },
+
+  servicesEditorial: {
+    productDevelopment: {
+      eyebrow: 'Product Development',
+      title: 'From Product Idea to Live Experience',
+      lead: 'Product strategy, interface design and engineering are connected around a clear user journey and production goal.',
+      paragraphs: [
+        'We build Android, iOS and responsive web products for startups, SMEs and enterprises. Each engagement can cover requirements, UX flows, frontend, backend, APIs, testing, deployment and continuous improvement.',
+        'The same delivery model supports customer applications, SaaS platforms, portals, dashboards and internal business systems.'
+      ],
+      capabilities: ['Mobile Applications', 'Web Applications', 'SaaS Platforms', 'Portals & Dashboards', 'UI/UX Design', 'Cloud-Ready Delivery']
+    },
+    gameDevelopment: {
+      eyebrow: 'Game Development',
+      title: 'Rule-Driven Systems for Multiplayer Experiences',
+      lead: 'We develop the gameplay and platform systems that keep players connected, informed and engaged.',
+      body: 'Capabilities cover 2D and 3D games, turn-based engines, real-time multiplayer, rooms, matchmaking, tournaments, progression and operational tools. Rules and state transitions are validated to keep the experience clear across desktop and mobile layouts.',
+      items: [
+        { id: 'real-time', kicker: '01', title: 'Real-Time Multiplayer', body: 'Room state, event synchronization, reconnect handling and server-authoritative flows.', tone: 'purple' },
+        { id: 'matchmaking', kicker: '02', title: 'Rooms & Matchmaking', body: 'Public, private and skill-based room discovery with bot-supported fallback.', tone: 'blue' },
+        { id: 'turn-systems', kicker: '03', title: 'Turn-Based Systems', body: 'Timers, action validation, state transitions and consistent player feedback.', tone: 'cyan' },
+        { id: 'economy', kicker: '04', title: 'Economy & Progression', body: 'Coins, rewards, configurable rules, progression and leaderboard structures.', tone: 'gold' }
+      ]
+    },
+    automation: {
+      eyebrow: 'AI & Business Systems',
+      title: 'Automation That Reduces Manual Work',
+      lead: 'Practical AI and operational systems improve support, data capture and everyday business workflows.',
+      items: [
+        { id: 'assistants', kicker: 'AI', title: 'AI Assistants', body: 'Conversational assistants for websites, applications, onboarding and product support.', points: ['Chatbots and guided support', 'GPT integration', 'Knowledge retrieval'], tone: 'cyan' },
+        { id: 'automation', kicker: 'Workflow', title: 'Automation & OCR', body: 'Trigger-based workflows and document extraction that accelerate routine processing.', points: ['OCR data capture', 'Connected workflows', 'Ticket classification'], tone: 'purple' },
+        { id: 'enterprise', kicker: 'Operations', title: 'CRM, ERP & Analytics', body: 'Custom operational systems for sales, inventory, finance, HR, support and decision visibility.', points: ['Zoho and CRM workflows', 'ERP modules', 'Analytics dashboards'], tone: 'gold' }
+      ]
+    },
+    technology: {
+      eyebrow: 'Technology Stack',
+      title: 'Modern Tools Across Product Layers',
+      lead: 'The stack is selected around platform requirements, delivery speed, scalability and long-term maintainability.',
+      groups: [
+        { id: 'mobile', label: 'Mobile', items: ['Flutter', 'React Native', 'Kotlin', 'Swift'] },
+        { id: 'frontend', label: 'Frontend', items: ['React.js', 'Next.js', 'HTML5', 'CSS3', 'JavaScript', 'TypeScript'] },
+        { id: 'backend', label: 'Backend', items: ['Node.js', 'PHP', 'Laravel', 'Express.js'] },
+        { id: 'data', label: 'Data', items: ['MySQL', 'MongoDB', 'Firebase'] },
+        { id: 'cloud', label: 'Cloud', items: ['AWS', 'Google Cloud', 'Firebase'] },
+        { id: 'gaming', label: 'Gaming', items: ['Unity', 'Unreal Engine', 'Photon', 'PlayFab'] }
+      ]
+    },
+    engagement: {
+      eyebrow: 'Engagement Options',
+      title: 'A Delivery Model That Fits the Scope',
+      lead: 'Engagement structure can be matched to a defined project, an ongoing product roadmap or an existing development team.',
+      options: [
+        { id: 'fixed', kicker: 'Defined Scope', title: 'Fixed-Cost Project', body: 'Milestone-based delivery for a clearly defined product scope, timeline and acceptance criteria.', tone: 'blue' },
+        { id: 'dedicated', kicker: 'Flexible Capacity', title: 'Dedicated Developers', body: 'Focused engineering capacity for product backlogs, integrations, improvements and ongoing delivery.', tone: 'purple' },
+        { id: 'team', kicker: 'Long-Term Delivery', title: 'Product Team & Retainer', body: 'Cross-functional support for MVP development, continuous releases and long-term product improvement.', tone: 'cyan' }
+      ],
+      cta: {
+        eyebrow: 'Discuss Your Requirements',
+        title: 'Choose the Right Path for Your Product',
+        body: 'Share your platform, scope and delivery goals so the team can recommend a practical technical approach.',
+        button: 'Talk to Our Team'
+      }
+    }
   },
 
   portfolio: {
@@ -224,6 +488,119 @@ export const siteContent = {
         summary: 'A startup and event-style mobile application reference included as the app listing in the selected Games & Apps portfolio set.'
       }
     ]
+  },
+
+
+  portfolioEditorial: {
+    approach: {
+      eyebrow: 'How We Build',
+      title: 'Product Thinking Behind the Visuals',
+      lead: 'The interface is only one layer. Each delivery combines user journeys, product rules, technical architecture and a production-ready handoff.',
+      paragraphs: [
+        'Manav Tech Labs works across mobile applications, multiplayer games and digital platforms. The delivery focus is to turn a business requirement into clear flows, reliable systems and an experience that can be maintained after launch.',
+        'Selected work is reviewed through the challenge being solved, the system delivered and the measurable product coverage—not through visuals alone.'
+      ],
+      items: [
+        {
+          id: 'product-clarity',
+          kicker: 'Product Layer',
+          title: 'Clear User Journeys',
+          body: 'Flows, actions and feedback are organized around the user goal so the experience remains understandable across devices.',
+          tone: 'cyan'
+        },
+        {
+          id: 'system-design',
+          kicker: 'Engineering Layer',
+          title: 'Reliable Product Systems',
+          body: 'Backend services, APIs, real-time state, validation and data flows are designed around the product requirements.',
+          tone: 'purple'
+        },
+        {
+          id: 'delivery-handoff',
+          kicker: 'Delivery Layer',
+          title: 'Production-Focused Handoff',
+          body: 'Testing, responsive validation, deployment support and documentation keep the product ready for continued improvement.',
+          tone: 'gold'
+        }
+      ]
+    },
+    caseStudies: {
+      eyebrow: 'Selected Case Notes',
+      title: 'Five Products, Five Delivery Challenges',
+      lead: 'Short case-study summaries based on the selected work documented in the Manav Tech Labs company profile.',
+      items: [
+        {
+          id: 'trinkoo',
+          category: 'Social Entertainment App',
+          title: 'Trinkoo',
+          challenge: 'Bring games, live streaming, chat and rewards into one clear mobile journey.',
+          solution: 'A unified product experience combining discovery, community tools, engagement loops and rewards.',
+          outcomes: ['4.8K+ tracked Android downloads by July 2026', '10+ multiplayer games in one platform', '4 engagement systems: streaming, chat, check-ins and rewards'],
+          technology: 'Mobile app, APIs, chat, streaming and rewards',
+          tone: 'purple'
+        },
+        {
+          id: 'pavan',
+          category: 'Mobility Application',
+          title: 'Pavan',
+          challenge: 'Support multiple ride types while keeping booking, scheduling and trip coordination simple.',
+          solution: 'Structured booking, live location, driver coordination and payment flows across mobile platforms.',
+          outcomes: ['Published on Android and iOS', '1K+ Google Play downloads by July 2026', '4 ride categories and 3 payment methods'],
+          technology: 'Mobile apps, location services, APIs and payments',
+          tone: 'gold'
+        },
+        {
+          id: 'liars-dice',
+          category: 'Multiplayer Bluffing Game',
+          title: "Liar's Dice",
+          challenge: 'Synchronize hidden dice, progressive bids and room state across human players and bots.',
+          solution: 'Real-time rooms, validated turn actions, bot-supported play and responsive portrait and landscape UI.',
+          outcomes: ['2–4 players with 5 dice per player', '4 validated core turn actions', 'Desktop, landscape and portrait coverage'],
+          technology: 'Responsive web, Node.js, real-time state and game systems',
+          tone: 'cyan'
+        },
+        {
+          id: 'ship-captain-crew',
+          category: 'Pirate Dice Strategy',
+          title: 'Ship Captain Crew',
+          challenge: 'Translate a structured dice sequence into clear turns, scoring and multiplayer feedback.',
+          solution: 'A rule-driven game engine with timed rolls, rooms, bot fill and responsive pirate-themed UI.',
+          outcomes: ['2–4 players using the 5-dice rule set', '3 rolls per turn and 4 scoring elements', 'Desktop, landscape and portrait coverage'],
+          technology: 'Responsive web, Node.js, multiplayer state and game systems',
+          tone: 'blue'
+        },
+        {
+          id: 'malaysian-mahjong',
+          category: 'Three-Player Tile Game',
+          title: '3P Malaysian Mahjong',
+          challenge: 'Implement regional tile rules, claim priority, wildcard logic and scoring without losing clarity.',
+          solution: 'A dedicated rule engine for draw and discard, Pong, Chow, Kong, Fei handling, seats and fan scoring.',
+          outcomes: ['84-tile Malaysian 3-player rule set', '4 Fei wildcards and a 5-Fan minimum win', 'Synchronized Pong, Chow and Kong claims'],
+          technology: 'Responsive web, real-time backend, tile rules and scoring',
+          tone: 'purple'
+        }
+      ],
+      note: 'Public store metrics were checked in July 2026 and may change. Commercial game performance remains client-confidential unless formally approved.'
+    },
+    delivery: {
+      eyebrow: 'What We Deliver',
+      title: 'Connected Product Delivery',
+      lead: 'The exact scope is adapted to the engagement, but delivery can cover the complete path from interface design to release support.',
+      items: [
+        { id: 'ux', kicker: 'Experience', title: 'Product UI & UX', body: 'User flows, wireframes, responsive interfaces and product feedback states.', tone: 'cyan' },
+        { id: 'frontend', kicker: 'Client Layer', title: 'Frontend Development', body: 'Responsive mobile and web interfaces aligned to the approved product flows.', tone: 'blue' },
+        { id: 'backend', kicker: 'System Layer', title: 'Backend & APIs', body: 'Authentication, data, integrations, rooms, dashboards and operational services.', tone: 'purple' },
+        { id: 'game-systems', kicker: 'Gameplay', title: 'Game Systems', body: 'Rules, timers, matchmaking, economies, progression and multiplayer state.', tone: 'gold' },
+        { id: 'quality', kicker: 'Release', title: 'QA & Deployment', body: 'Device validation, regression coverage, deployment support and handoff.', tone: 'cyan' },
+        { id: 'support', kicker: 'Continuity', title: 'Support & Improvement', body: 'Updates, optimization and continued product improvements after launch.', tone: 'purple' }
+      ],
+      cta: {
+        eyebrow: 'Build Something Similar',
+        title: 'Discuss the Product, Not Just the Screen',
+        body: 'Share the platform, required systems and delivery goals so the team can define a practical scope.',
+        button: 'Discuss Your Project'
+      }
+    }
   },
 
 
@@ -661,6 +1038,66 @@ export const siteContent = {
         tone: 'gold'
       }
     ]
+  },
+
+
+  processEditorial: {
+    visibility: {
+      eyebrow: 'Delivery Visibility',
+      title: 'A Process Built Around Clear Milestones',
+      lead: 'Product, design and engineering stay aligned through visible outputs, regular reviews and accountable handoff.',
+      paragraphs: [
+        'The workflow begins with goals and scope, then moves through planning, design, development, testing, deployment and support. Each stage produces a clear output that can be reviewed before the next milestone begins.',
+        'This keeps decisions practical, exposes risks early and gives the client a consistent view of progress throughout delivery.'
+      ],
+      items: [
+        { id: 'milestones', kicker: 'Progress', title: 'Visible Milestones', body: 'Defined deliverables make progress easier to review and approve.', tone: 'cyan' },
+        { id: 'reviews', kicker: 'Alignment', title: 'Regular Product Reviews', body: 'Working flows and builds are reviewed throughout the engagement.', tone: 'purple' },
+        { id: 'risks', kicker: 'Control', title: 'Early Risk Visibility', body: 'Technical, scope and delivery risks are surfaced before they become blockers.', tone: 'gold' }
+      ]
+    },
+    stages: {
+      eyebrow: 'Stage Deliverables',
+      title: 'What You Receive Through the Workflow',
+      lead: 'Seven connected stages move the product from an initial requirement to a supported release.',
+      items: [
+        { id: 'discovery', number: '01', title: 'Discovery', summary: 'Goals, users and scope', deliverable: 'Product requirements and initial scope' },
+        { id: 'planning', number: '02', title: 'Planning', summary: 'Requirements and roadmap', deliverable: 'Milestones, priorities and delivery plan' },
+        { id: 'design', number: '03', title: 'Design', summary: 'Flows, UI and prototype', deliverable: 'Approved user flows and interface direction' },
+        { id: 'development', number: '04', title: 'Development', summary: 'Frontend, backend and systems', deliverable: 'Working product builds and integrations' },
+        { id: 'testing', number: '05', title: 'Testing', summary: 'QA, devices and regression', deliverable: 'Validated builds and issue resolution' },
+        { id: 'deployment', number: '06', title: 'Deployment', summary: 'Release, monitoring and handoff', deliverable: 'Production release and deployment support' },
+        { id: 'support', number: '07', title: 'Support', summary: 'Updates and optimization', deliverable: 'Maintenance and improvement options' }
+      ]
+    },
+    quality: {
+      eyebrow: 'Quality Before Handoff',
+      title: 'Validation Across Product Layers',
+      lead: 'Testing covers the experience, the technical flow and the release path—not only individual screens.',
+      items: [
+        { id: 'functional', kicker: 'Product Flow', title: 'Functional QA', body: 'Core actions, user journeys and acceptance requirements are checked against the approved scope.', tone: 'cyan' },
+        { id: 'responsive', kicker: 'Device Coverage', title: 'Responsive Validation', body: 'Interfaces are reviewed across desktop, landscape and portrait where required by the product.', tone: 'blue' },
+        { id: 'regression', kicker: 'Stability', title: 'Regression Coverage', body: 'Updates are checked against existing flows to reduce reintroduced issues.', tone: 'purple' },
+        { id: 'release', kicker: 'Production', title: 'Release Readiness', body: 'Deployment configuration, monitoring and handoff requirements are reviewed before release.', tone: 'gold' }
+      ]
+    },
+    support: {
+      eyebrow: 'After Launch',
+      title: 'Support Is Part of the Product Lifecycle',
+      lead: 'The release is a milestone, not the end of the product. Ongoing work can be structured around stability, optimization and planned improvements.',
+      items: [
+        { id: 'updates', title: 'Product Updates', body: 'Planned feature changes and iterative improvements.' },
+        { id: 'optimization', title: 'Optimization', body: 'Performance, responsiveness and workflow refinements.' },
+        { id: 'maintenance', title: 'Maintenance', body: 'Issue resolution, compatibility updates and operational support.' },
+        { id: 'continuous', title: 'Continuous Improvement', body: 'Roadmap-based enhancements informed by product priorities.' }
+      ],
+      cta: {
+        eyebrow: 'Plan the Delivery',
+        title: 'Start With a Clear Scope and Milestone Path',
+        body: 'Share the product goal, current stage and target platforms to define the next practical step.',
+        button: 'Start a Project'
+      }
+    }
   },
 
 
