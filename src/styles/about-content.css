@@ -42,9 +42,11 @@
   margin-bottom: 20px;
 }
 
-.about-highlight-grid .article-card__index {
+.about-highlight-grid .article-card__index--number {
   width: 46px;
   height: 46px;
+  min-width: 46px;
+  min-height: 46px;
 }
 
 .about-highlight-grid .article-card__body {

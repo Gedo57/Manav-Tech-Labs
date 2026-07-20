@@ -39,13 +39,16 @@ export function MetricStrip({ items, ariaLabel = 'Company highlights' }) {
 }
 
 export function ArticleCard({ item, index, iconSrc }) {
+  const badgeText = item.kicker ?? String(index + 1).padStart(2, '0');
+  const badgeType = /^\d+$/.test(String(badgeText).trim()) ? 'number' : 'label';
+
   return (
-    <article className={`article-card article-card--${item.tone ?? 'blue'}`}>
+    <article className={`article-card article-card--${item.tone ?? 'blue'} article-card--${badgeType}-index`}>
       <div className="article-card__topline">
         {iconSrc ? (
           <img className="article-card__icon" src={iconSrc} alt="" aria-hidden="true" />
         ) : (
-          <span className="article-card__index" aria-hidden="true">{item.kicker ?? String(index + 1).padStart(2, '0')}</span>
+          <span className={`article-card__index article-card__index--${badgeType}`} aria-hidden="true">{badgeText}</span>
         )}
         {iconSrc && item.kicker && <span className="article-card__kicker">{item.kicker}</span>}
       </div>

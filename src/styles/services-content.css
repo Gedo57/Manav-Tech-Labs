@@ -64,9 +64,11 @@
   margin-bottom: 20px;
 }
 
-.services-game-grid .article-card__index {
+.services-game-grid .article-card__index--number {
   width: 46px;
   height: 46px;
+  min-width: 46px;
+  min-height: 46px;
 }
 
 .services-editorial__automation {
