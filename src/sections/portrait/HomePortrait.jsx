@@ -68,8 +68,8 @@ export function HomePortrait() {
       </div>
 
       <div className="portrait-home-hero__actions controlled-box" style={{ ...boxStyle(layout.actions), ...actionsVars }} aria-label="Hero actions">
-        <Button href="#contact">{cta.primary}</Button>
-        <Button variant="secondary" href="#portfolio">{cta.secondary}</Button>
+        <Button href="/contact">{cta.primary}</Button>
+        <Button variant="secondary" href="/portfolio">{cta.secondary}</Button>
       </div>
 
       <div className="portrait-home-services controlled-box" style={{ ...boxStyle(layout.servicesStrip), ...stripVars }} aria-label="Core services">

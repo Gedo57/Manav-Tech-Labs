@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { productsPageLayout as layout } from '../config/layout/products.layout.js';
 import { cssVars } from '../config/layout/styleHelpers.js';
 import { assets } from '../data/assets.js';
@@ -124,8 +125,8 @@ function ProductCard({ product, isSelected, isFavorite, onSelect, onToggleFavori
         </div>
 
         <div className="product-card__actions">
-          <a href={`#checkout?product=${encodeURIComponent(product.id)}`}>BUY NOW</a>
-          <a href={`#enquiry?product=${encodeURIComponent(product.id)}`}>ENQUIRY</a>
+          <Link to={`/checkout?product=${encodeURIComponent(product.id)}`}>BUY NOW</Link>
+          <Link to={`/enquiry?product=${encodeURIComponent(product.id)}`}>ENQUIRY</Link>
         </div>
       </div>
     </article>
@@ -239,10 +240,10 @@ function DetailsPanel({ product, isFavorite, onToggleFavorite }) {
     <aside className="products-detail" aria-label={`${product.name} details`}>
       <div className="products-detail__topline">
         <span>DETAILS</span>
-        <a href="#products">
+        <Link to="/products">
           <Icon name="arrow-left" />
           BACK TO PRODUCTS
-        </a>
+        </Link>
       </div>
 
       <div className="products-detail__gallery products-detail__gallery--single-thumb">
@@ -295,8 +296,8 @@ function DetailsPanel({ product, isFavorite, onToggleFavorite }) {
           <strong>1</strong>
           <button type="button">+</button>
         </div>
-        <a href={`#checkout?product=${encodeURIComponent(product.id)}`}>BUY NOW</a>
-        <a href={`#enquiry?product=${encodeURIComponent(product.id)}`}>ENQUIRY</a>
+        <Link to={`/checkout?product=${encodeURIComponent(product.id)}`}>BUY NOW</Link>
+        <Link to={`/enquiry?product=${encodeURIComponent(product.id)}`}>ENQUIRY</Link>
       </div>
     </aside>
   );

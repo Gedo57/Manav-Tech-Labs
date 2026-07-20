@@ -511,3 +511,36 @@
   padding: 0 var(--projectsCardPortraitLinkPaddingX);
   font-size: var(--projectsCardPortraitLinkFontSize);
 }
+
+/* Patch 3: the complete project directory now continues the /portfolio page. */
+.projects-page--embedded {
+  scroll-margin-top: calc(116px * var(--stage-scale));
+  padding-top: 92px;
+  border-top: 1px solid rgba(95, 127, 190, 0.16);
+}
+
+.projects-page--embedded .projects-page__background {
+  background:
+    radial-gradient(circle at 88% 6%, rgba(139, 77, 255, 0.17), transparent 30%),
+    radial-gradient(circle at 8% 34%, rgba(0, 140, 255, 0.11), transparent 28%),
+    linear-gradient(180deg, #01030b 0%, #020512 44%, #01030b 100%);
+}
+
+[data-layout='portrait'] .projects-page--embedded,
+.projects-page--embedded[data-mode='portrait'] {
+  scroll-margin-top: 96px;
+  padding-top: 58px;
+}
+
+/* Patch 4: keep the portfolio directory clear of the compact fixed header. */
+[data-layout='landscape'][data-device='tablet'] .projects-page--embedded,
+[data-layout='landscape'][data-device='mobile'] .projects-page--embedded {
+  scroll-margin-top: 84px;
+}
+
+@media (max-height: 620px) and (orientation: landscape) {
+  [data-layout='landscape'][data-device='tablet'] .projects-page--embedded,
+  [data-layout='landscape'][data-device='mobile'] .projects-page--embedded {
+    scroll-margin-top: 68px;
+  }
+}

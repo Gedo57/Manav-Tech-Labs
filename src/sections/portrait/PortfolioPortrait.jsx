@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ControlledSection } from '../../components/layout/ControlledSection.jsx';
 import { portfolioPortraitLayout as layout } from '../../config/layout/portrait/portfolio.layout.js';
 import { boxStyle, cssVars, textStyle } from '../../config/layout/styleHelpers.js';
@@ -53,7 +54,7 @@ export function PortfolioPortrait() {
     .filter((project) => project.featured)
     .slice(0, portfolio.featuredLimit ?? 4);
   const ctaButton = typeof portfolio.cta === 'string'
-    ? { label: portfolio.cta, href: '#projects', visible: true, ariaLabel: 'View all projects' }
+    ? { label: portfolio.cta, href: '/portfolio#project-directory', visible: true, ariaLabel: 'View all projects' }
     : portfolio.cta;
   const cardsVars = cssVars({
     portraitPortfolioCardsGap: layout.projects.gap
@@ -85,15 +86,15 @@ export function PortfolioPortrait() {
 
       <p className="portfolio-portrait__description controlled-box" style={textStyle(layout.description)}>{portfolio.description}</p>
       {ctaButton?.visible !== false && (
-        <a
+        <Link
           className="portfolio-portrait__cta controlled-box"
-          href={ctaButton?.href ?? '#projects'}
+          to={ctaButton?.href ?? '/portfolio#project-directory'}
           style={{ ...boxStyle(layout.cta), ...ctaVars }}
           aria-label={ctaButton?.ariaLabel ?? ctaButton?.label ?? 'View all projects'}
         >
           <span>{ctaButton?.label ?? 'View All Projects'}</span>
           <span aria-hidden="true">→</span>
-        </a>
+        </Link>
       )}
 
       <div className="portrait-portfolio-grid controlled-box" style={{ ...boxStyle(layout.projects), ...cardsVars }}>

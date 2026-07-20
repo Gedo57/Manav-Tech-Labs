@@ -152,6 +152,19 @@ function getProjectsPageStyle() {
   });
 }
 
+function getPortfolioStats(projects) {
+  const gameReferences = projects.filter((project) => project.category.includes('Game App')).length;
+  const vrReferences = projects.filter((project) => project.category === 'VR Game').length;
+  const mobileReferences = projects.filter((project) => project.category === 'Mobile App').length;
+
+  return [
+    { value: String(projects.length), label: 'Portfolio References' },
+    { value: String(gameReferences), label: 'Game App References' },
+    { value: String(vrReferences), label: 'VR References' },
+    { value: String(mobileReferences), label: 'Mobile App Listings' }
+  ];
+}
+
 function ProjectPageCard({ project, index }) {
   return (
     <article className="projects-page-card">
@@ -197,14 +210,27 @@ function ProjectPageCard({ project, index }) {
   );
 }
 
-export function ProjectsPage({ layoutMode }) {
+export function ProjectsPage({ layoutMode, embedded = false, excludeFeatured = false }) {
   const { portfolio, projectsPage } = siteContent;
   const isPortrait = layoutMode === 'portrait';
+  const visibleProjects = excludeFeatured
+    ? portfolio.projects.filter((project) => !project.featured)
+    : portfolio.projects;
+  const indexOffset = excludeFeatured
+    ? portfolio.projects.filter((project) => project.featured).length
+    : 0;
+  const stats = getPortfolioStats(portfolio.projects);
+  const Root = embedded ? 'section' : 'main';
 
   return (
-    <main id="projects" className="projects-page" data-mode={layoutMode} style={getProjectsPageStyle()}>
+    <Root
+      id="project-directory"
+      className={`projects-page ${embedded ? 'projects-page--embedded' : ''}`.trim()}
+      data-mode={layoutMode}
+      style={getProjectsPageStyle()}
+    >
       <div className="projects-page__background" aria-hidden="true" />
-      <section className="projects-page__shell" aria-label="All Manav Tech Labs projects">
+      <div className="projects-page__shell" aria-label="Complete Manav Tech Labs portfolio">
         <div className="projects-page__eyebrow">{projectsPage.eyebrow}</div>
 
         <div className="projects-page__hero">
@@ -216,14 +242,14 @@ export function ProjectsPage({ layoutMode }) {
             <p>{projectsPage.description}</p>
           </div>
 
-          <div className="projects-page__actions" aria-label="Projects page actions">
-            <Button href="#home" variant="secondary">Back Home</Button>
-            {!isPortrait && <Button href="#contact">Start Project</Button>}
+          <div className="projects-page__actions" aria-label="Portfolio actions">
+            <Button href="/services" variant="secondary">Our Services</Button>
+            {!isPortrait && <Button href="/contact">Start Project</Button>}
           </div>
         </div>
 
         <div className="projects-page__stats" aria-label="Portfolio summary">
-          {projectsPage.stats.map((stat) => (
+          {stats.map((stat) => (
             <div key={stat.label} className="projects-page__stat">
               <strong>{stat.value}</strong>
               <span>{stat.label}</span>
@@ -232,11 +258,11 @@ export function ProjectsPage({ layoutMode }) {
         </div>
 
         <div className="projects-page__grid">
-          {portfolio.projects.map((project, index) => (
-            <ProjectPageCard key={project.id} project={project} index={index} />
+          {visibleProjects.map((project, index) => (
+            <ProjectPageCard key={project.id} project={project} index={index + indexOffset} />
           ))}
         </div>
-      </section>
-    </main>
+      </div>
+    </Root>
   );
 }

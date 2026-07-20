@@ -65,8 +65,8 @@ export function HomeLandscape() {
       <p className="home-hero__subtitle controlled-box" style={textStyle(layout.subtitle)}>{home.subtitle}</p>
 
       <div className="home-hero__actions controlled-box" style={{ ...boxStyle(layout.actions), ...actionsVars }} aria-label="Hero actions">
-        <Button href="#contact">{cta.primary}</Button>
-        <Button variant="secondary" href="#portfolio">{cta.secondary}</Button>
+        <Button href="/contact">{cta.primary}</Button>
+        <Button variant="secondary" href="/portfolio">{cta.secondary}</Button>
       </div>
 
       <div className="home-hero__visual controlled-image" style={boxStyle(layout.visual)} aria-hidden="true">

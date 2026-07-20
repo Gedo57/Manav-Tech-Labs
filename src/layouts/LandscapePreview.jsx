@@ -16,8 +16,8 @@ export function LandscapePreview() {
             body={siteContent.phaseOnePreview.description}
           />
           <div className="stage__actions">
-            <Button href="#contact">{siteContent.cta.primary}</Button>
-            <Button variant="secondary" href="#portfolio">{siteContent.cta.secondary}</Button>
+            <Button href="/contact">{siteContent.cta.primary}</Button>
+            <Button variant="secondary" href="/portfolio">{siteContent.cta.secondary}</Button>
           </div>
         </div>
 

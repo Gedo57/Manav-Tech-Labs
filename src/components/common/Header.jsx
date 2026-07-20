@@ -1,25 +1,25 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { headerLandscapeLayout } from '../../config/layout/landscape/header.layout.js';
-import { headerPortraitLayout } from '../../config/layout/portrait/header.layout.js';
 import { boxStyle, cssVars } from '../../config/layout/styleHelpers.js';
 import { siteContent } from '../../data/siteContent.js';
+import { getNavigationRouteId, ROUTES } from '../../routing/routes.js';
 import { Button } from './Button.jsx';
 import { LogoMark } from './LogoMark.jsx';
 
-const PRODUCTS_HASH = '#products';
-const ENQUIRY_HASH = '#enquiry';
-const CHECKOUT_HASH = '#checkout';
-const PROJECTS_HASH = '#projects';
-const IGAMING_HASH = '#igaming';
-const MOBILE_APPS_HASH = '#mobile-apps';
 const PRODUCTS_SEARCH_EVENT = 'manav-products-search';
 const PRODUCTS_FAVORITES_EVENT = 'manav-products-favorites';
 
-function HeaderQuickIcon({ type, label, onClick }) {
+function HeaderQuickIcon({ type, label, onClick, showLabel = false }) {
   const isHeart = type === 'heart';
 
   return (
-    <button className="site-header-action" type="button" aria-label={label} onClick={onClick}>
+    <button
+      className={`site-header-action ${showLabel ? 'site-header-action--labeled' : ''}`.trim()}
+      type="button"
+      aria-label={label}
+      onClick={onClick}
+    >
       <svg viewBox="0 0 24 24" aria-hidden="true">
         {isHeart ? (
           <path d="M20.8 5.8a5.1 5.1 0 0 0-7.2 0L12 7.4l-1.6-1.6a5.1 5.1 0 0 0-7.2 7.2L12 21.8l8.8-8.8a5.1 5.1 0 0 0 0-7.2Z" />
@@ -30,254 +30,232 @@ function HeaderQuickIcon({ type, label, onClick }) {
           </>
         )}
       </svg>
+      {showLabel && <span>{label}</span>}
     </button>
   );
 }
 
-function getHashId(href = '') {
-  return href.startsWith('#') ? href.slice(1) : '';
-}
-
-function getCurrentSectionId(navItems) {
-  if (typeof window === 'undefined') {
-    return navItems[0]?.id ?? 'home';
-  }
-
-  if (window.location.hash.startsWith(MOBILE_APPS_HASH)) return 'mobile-apps';
-  if (window.location.hash.startsWith(IGAMING_HASH)) return 'igaming';
-  if (window.location.hash === PRODUCTS_HASH) return 'products';
-  if (window.location.hash.startsWith(ENQUIRY_HASH)) return 'products';
-  if (window.location.hash.startsWith(CHECKOUT_HASH)) return 'products';
-  if (window.location.hash === PROJECTS_HASH) return 'portfolio';
-
-  const headerOffset = Math.max(88, window.innerHeight * 0.18);
-  const currentScrollPoint = window.scrollY + headerOffset;
-  let activeId = navItems[0]?.id ?? 'home';
-
-  navItems.forEach((item) => {
-    const sectionId = getHashId(item.href) || item.id;
-    const section = document.getElementById(sectionId);
-
-    if (!section) return;
-
-    const sectionTop = section.offsetTop;
-    if (sectionTop <= currentScrollPoint) {
-      activeId = item.id;
-    }
-  });
-
-  return activeId;
-}
-
 function dispatchProductsHeaderEvent(eventName) {
   if (typeof window === 'undefined') return;
-
   window.dispatchEvent(new CustomEvent(eventName));
 }
 
-export function Header({ layoutMode, route }) {
-  const isPortrait = layoutMode === 'portrait';
-  const layout = isPortrait ? headerPortraitLayout : headerLandscapeLayout;
-  const navItems = siteContent.navigation;
-  const defaultActiveId = navItems[0]?.id ?? 'home';
-  const [activeId, setActiveId] = useState(defaultActiveId);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isProductsRoute = route === 'products' || route === 'checkout';
+function dispatchAfterNavigation(eventName) {
+  if (typeof window === 'undefined') return;
 
-  const headerStyle = cssVars({
-    headerStageWidth: layout.stage.width,
-    headerStageHeight: layout.stage.height,
-    navGap: layout.nav?.gap ?? 0,
-    navFontSize: layout.nav?.fontSize ?? 16,
-    navUnderlineY: layout.nav?.underlineY ?? 34,
-    headerCtaFontSize: layout.cta?.fontSize ?? 16,
-    headerCtaHeight: layout.cta?.height ?? 56,
-    headerQuickActionsGap: layout.quickActions?.gap ?? 0
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => dispatchProductsHeaderEvent(eventName));
   });
+}
+
+export function Header({ layoutMode, device, route }) {
+  const navigate = useNavigate();
+  const menuButtonRef = useRef(null);
+  const firstMenuLinkRef = useRef(null);
+  const isPortrait = layoutMode === 'portrait';
+  const isCompactHeader = isPortrait || device !== 'desktop';
+  const layout = headerLandscapeLayout;
+  const navItems = siteContent.navigation;
+  const activeId = getNavigationRouteId(route);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isProductsRoute = activeId === 'products';
+
+  const headerStyle = isCompactHeader
+    ? undefined
+    : cssVars({
+        headerStageWidth: layout.stage.width,
+        headerStageHeight: layout.stage.height,
+        navGap: layout.nav?.gap ?? 0,
+        navFontSize: layout.nav?.fontSize ?? 16,
+        navUnderlineY: layout.nav?.underlineY ?? 34,
+        headerCtaFontSize: layout.cta?.fontSize ?? 16,
+        headerCtaHeight: layout.cta?.height ?? 56,
+        headerQuickActionsGap: layout.quickActions?.gap ?? 0
+      });
 
   const mobileMenuId = 'mobile-main-menu';
-  const menuLayout = layout.menu ?? { x: 0, y: 0, width: 0, height: 0 };
-
-  const mobileNavStyle = useMemo(() => {
-    const menuWidth = 250;
-
-    return {
-      left: `${Math.max(18, menuLayout.x + menuLayout.width - menuWidth)}px`,
-      top: `${menuLayout.y + menuLayout.height + 12}px`,
-      width: `${menuWidth}px`
-    };
-  }, [menuLayout.height, menuLayout.width, menuLayout.x, menuLayout.y]);
 
   useEffect(() => {
-    const updateActiveSection = () => {
-      if (route === 'products' || route === 'enquiry' || route === 'checkout') {
-        setActiveId('products');
-        return;
-      }
-
-      if (route === 'mobile-apps') {
-        setActiveId('mobile-apps');
-        return;
-      }
-
-      if (route === 'igaming') {
-        setActiveId('igaming');
-        return;
-      }
-
-      if (route === 'projects') {
-        setActiveId('portfolio');
-        return;
-      }
-
-      setActiveId(getCurrentSectionId(navItems));
-    };
-
-    let animationFrame = 0;
-    const onScroll = () => {
-      window.cancelAnimationFrame(animationFrame);
-      animationFrame = window.requestAnimationFrame(updateActiveSection);
-    };
-
-    updateActiveSection();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', updateActiveSection);
-    window.addEventListener('hashchange', updateActiveSection);
-
-    return () => {
-      window.cancelAnimationFrame(animationFrame);
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', updateActiveSection);
-      window.removeEventListener('hashchange', updateActiveSection);
-    };
-  }, [navItems, route]);
+    setIsMenuOpen(false);
+  }, [route]);
 
   useEffect(() => {
-    if (!isPortrait && isMenuOpen) {
+    if (!isCompactHeader && isMenuOpen) {
       setIsMenuOpen(false);
     }
-  }, [isMenuOpen, isPortrait]);
+  }, [isCompactHeader, isMenuOpen]);
 
   useEffect(() => {
     if (!isMenuOpen) return undefined;
 
+    const previousOverflow = document.body.style.overflow;
+    document.body.classList.add('mobile-nav-open');
+    document.body.style.overflow = 'hidden';
+
+    const focusFrame = window.requestAnimationFrame(() => firstMenuLinkRef.current?.focus());
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
         setIsMenuOpen(false);
+        window.requestAnimationFrame(() => menuButtonRef.current?.focus());
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
+      window.cancelAnimationFrame(focusFrame);
       window.removeEventListener('keydown', handleKeyDown);
+      document.body.classList.remove('mobile-nav-open');
+      document.body.style.overflow = previousOverflow;
     };
   }, [isMenuOpen]);
 
-  const handleNavClick = (item) => {
-    setActiveId(item.id);
+  const closeMenu = ({ restoreFocus = false } = {}) => {
     setIsMenuOpen(false);
+    if (restoreFocus) {
+      window.requestAnimationFrame(() => menuButtonRef.current?.focus());
+    }
   };
 
-  const renderNavLink = (item, classNamePrefix) => {
+  const renderNavLink = (item, classNamePrefix, index = 0) => {
     const isActive = activeId === item.id;
 
     return (
-      <a
+      <Link
         key={item.id}
+        ref={classNamePrefix === 'mobile-nav' && index === 0 ? firstMenuLinkRef : undefined}
         className={`${classNamePrefix}__link ${isActive ? `${classNamePrefix}__link--active` : ''}`.trim()}
-        href={item.href}
+        to={item.href}
         aria-current={isActive ? 'page' : undefined}
-        onClick={() => handleNavClick(item)}
+        tabIndex={classNamePrefix === 'mobile-nav' && !isMenuOpen ? -1 : undefined}
+        onClick={() => closeMenu()}
       >
         {item.label}
-      </a>
+      </Link>
     );
   };
 
+  const openProductsPanel = (eventName) => {
+    closeMenu();
+
+    if (route === 'products') {
+      dispatchProductsHeaderEvent(eventName);
+      return;
+    }
+
+    navigate(ROUTES.products);
+    dispatchAfterNavigation(eventName);
+  };
+
   return (
-    <header
-      className="site-header site-header--controlled"
-      data-header-route={route ?? activeId}
-      style={headerStyle}
-    >
-      <LogoMark
-        compact={isPortrait}
-        layout={layout.logo}
-        className="site-header__logo"
-        style={boxStyle(layout.logo)}
-      />
+    <>
+      <header
+        className={`site-header ${isCompactHeader ? 'site-header--compact' : 'site-header--controlled'}`.trim()}
+        data-header-route={activeId}
+        data-header-variant={isCompactHeader ? 'compact' : 'desktop'}
+        style={headerStyle}
+      >
+        <LogoMark
+          compact={isPortrait}
+          layout={isCompactHeader ? { width: isPortrait ? 48 : 206, height: isPortrait ? 44 : 52 } : layout.logo}
+          className="site-header__logo"
+          style={isCompactHeader ? undefined : boxStyle(layout.logo)}
+          onClick={isCompactHeader ? () => closeMenu() : undefined}
+        />
 
-      {!isPortrait && (
-        <nav className="site-nav" aria-label="Main navigation" style={boxStyle(layout.nav)}>
-          {navItems.map((item) => renderNavLink(item, 'site-nav'))}
-        </nav>
-      )}
-
-      {isPortrait ? (
-        <>
-          <button
-            className={`mobile-menu-button ${isMenuOpen ? 'mobile-menu-button--active' : ''}`.trim()}
-            type="button"
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isMenuOpen}
-            aria-controls={mobileMenuId}
-            style={boxStyle(layout.menu)}
-            onClick={() => setIsMenuOpen((current) => !current)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-
-          <nav
-            id={mobileMenuId}
-            className={`mobile-nav ${isMenuOpen ? 'mobile-nav--open' : ''}`.trim()}
-            aria-label="Mobile navigation"
-            aria-hidden={!isMenuOpen}
-            style={mobileNavStyle}
-          >
-            {navItems.map((item) => renderNavLink(item, 'mobile-nav'))}
+        {!isCompactHeader && (
+          <nav className="site-nav" aria-label="Main navigation" style={boxStyle(layout.nav)}>
+            {navItems.map((item, index) => renderNavLink(item, 'site-nav', index))}
           </nav>
-        </>
-      ) : (
-        <>
-          <Button variant="outline-gold" href="#contact" className="site-header__cta" style={boxStyle(layout.cta)}>
-            {siteContent.cta.primary}
-          </Button>
+        )}
 
-          {layout.quickActions && isProductsRoute && (
-            <div className="site-header__quick-actions" style={boxStyle(layout.quickActions)}>
-              <HeaderQuickIcon
-                type="search"
-                label="Search products"
-                onClick={() => {
-                  if (route === 'products') {
-                    dispatchProductsHeaderEvent(PRODUCTS_SEARCH_EVENT);
-                    return;
-                  }
+        {isCompactHeader ? (
+          <>
+            <button
+              ref={menuButtonRef}
+              className={`mobile-menu-button ${isMenuOpen ? 'mobile-menu-button--active' : ''}`.trim()}
+              type="button"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
+              aria-controls={mobileMenuId}
+              onClick={() => setIsMenuOpen((current) => !current)}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
 
-                  window.location.hash = PRODUCTS_HASH;
-                  window.setTimeout(() => dispatchProductsHeaderEvent(PRODUCTS_SEARCH_EVENT), 80);
-                }}
-              />
-              <HeaderQuickIcon
-                type="heart"
-                label="Saved products"
-                onClick={() => {
-                  if (route === 'products') {
-                    dispatchProductsHeaderEvent(PRODUCTS_FAVORITES_EVENT);
-                    return;
-                  }
+            <nav
+              id={mobileMenuId}
+              className={`mobile-nav ${isMenuOpen ? 'mobile-nav--open' : ''}`.trim()}
+              aria-label="Mobile navigation"
+              aria-hidden={!isMenuOpen}
+            >
+              <div className="mobile-nav__links">
+                {navItems.map((item, index) => renderNavLink(item, 'mobile-nav', index))}
+              </div>
 
-                  window.location.hash = PRODUCTS_HASH;
-                  window.setTimeout(() => dispatchProductsHeaderEvent(PRODUCTS_FAVORITES_EVENT), 80);
-                }}
-              />
-            </div>
-          )}
-        </>
+              {isProductsRoute && (
+                <div className="mobile-nav__product-actions" aria-label="Product tools">
+                  <HeaderQuickIcon
+                    type="search"
+                    label="Search products"
+                    showLabel
+                    onClick={() => openProductsPanel(PRODUCTS_SEARCH_EVENT)}
+                  />
+                  <HeaderQuickIcon
+                    type="heart"
+                    label="Saved products"
+                    showLabel
+                    onClick={() => openProductsPanel(PRODUCTS_FAVORITES_EVENT)}
+                  />
+                </div>
+              )}
+
+              <Button
+                variant="outline-gold"
+                href={ROUTES.contact}
+                className="mobile-nav__cta"
+                style={undefined}
+                onClick={() => closeMenu()}
+              >
+                {siteContent.cta.primary}
+              </Button>
+            </nav>
+          </>
+        ) : (
+          <>
+            <Button variant="outline-gold" href={ROUTES.contact} className="site-header__cta" style={boxStyle(layout.cta)}>
+              {siteContent.cta.primary}
+            </Button>
+
+            {layout.quickActions && isProductsRoute && (
+              <div className="site-header__quick-actions" style={boxStyle(layout.quickActions)}>
+                <HeaderQuickIcon
+                  type="search"
+                  label="Search products"
+                  onClick={() => openProductsPanel(PRODUCTS_SEARCH_EVENT)}
+                />
+                <HeaderQuickIcon
+                  type="heart"
+                  label="Saved products"
+                  onClick={() => openProductsPanel(PRODUCTS_FAVORITES_EVENT)}
+                />
+              </div>
+            )}
+          </>
+        )}
+      </header>
+
+      {isCompactHeader && (
+        <button
+          className={`mobile-nav-backdrop ${isMenuOpen ? 'mobile-nav-backdrop--visible' : ''}`.trim()}
+          type="button"
+          aria-label="Close navigation menu"
+          tabIndex={isMenuOpen ? 0 : -1}
+          onClick={() => closeMenu({ restoreFocus: true })}
+        />
       )}
-    </header>
+    </>
   );
 }

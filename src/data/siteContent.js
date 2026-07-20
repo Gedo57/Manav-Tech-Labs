@@ -8,15 +8,15 @@ export const siteContent = {
   },
 
   navigation: [
-    { id: 'home', label: 'Home', href: '#home' },
-    { id: 'about', label: 'About', href: '#about' },
-    { id: 'services', label: 'Services', href: '#services' },
-    { id: 'igaming', label: 'iGaming', href: '#igaming' },
-    { id: 'mobile-apps', label: 'Mobile Apps', href: '#mobile-apps' },
-    { id: 'portfolio', label: 'Portfolio', href: '#portfolio' },
-    { id: 'process', label: 'Process', href: '#process' },
-    { id: 'products', label: 'Products', href: '#products' },
-    { id: 'contact', label: 'Contact', href: '#contact' }
+    { id: 'home', label: 'Home', href: '/', sectionId: 'home' },
+    { id: 'about', label: 'About', href: '/about', sectionId: 'about' },
+    { id: 'services', label: 'Services', href: '/services', sectionId: 'services' },
+    { id: 'igaming', label: 'iGaming', href: '/igaming' },
+    { id: 'mobile-apps', label: 'Mobile Apps', href: '/mobile-apps' },
+    { id: 'portfolio', label: 'Portfolio', href: '/portfolio', sectionId: 'portfolio' },
+    { id: 'process', label: 'Process', href: '/process', sectionId: 'process' },
+    { id: 'products', label: 'Products', href: '/products' },
+    { id: 'contact', label: 'Contact', href: '/contact', sectionId: 'contact' }
   ],
 
   cta: {
@@ -108,10 +108,10 @@ export const siteContent = {
     titleAccent: 'WORK',
     description: 'Source-backed Games & Apps references from the Manav Tech Labs Work Directory, including game apps, a VR reference, and an iOS app listing.',
     cta: {
-      label: 'View All Projects',
-      href: '#projects',
+      label: 'Explore Full Portfolio',
+      href: '/portfolio#project-directory',
       visible: true,
-      ariaLabel: 'View all Manav Tech Labs projects'
+      ariaLabel: 'Explore the complete Manav Tech Labs portfolio'
     },
     featuredLimit: 4,
     projects: [
@@ -404,10 +404,10 @@ export const siteContent = {
   },
 
   projectsPage: {
-    eyebrow: 'Source-backed portfolio',
-    titleTop: 'ALL',
-    titleAccent: 'PROJECTS',
-    description: 'Browse the complete Games & Apps project list with real project names, categories, platforms, live links, and build-positioning details.',
+    eyebrow: 'Complete portfolio',
+    titleTop: 'PROJECT',
+    titleAccent: 'DIRECTORY',
+    description: 'The featured work above and the additional references below form one complete Games & Apps portfolio, with project categories, platforms, highlights, and live source links.',
     stats: [
       { value: '8', label: 'Selected References' },
       { value: '6', label: 'Game App References' },

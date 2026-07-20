@@ -1,18 +1,19 @@
 {
   "name": "manav-tech-labs-website-home-whyus-1to1-fix",
   "private": true,
-  "version": "1.0.1-home-whyus-1to1-fix",
+  "version": "1.4.0-patch.4",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 5173",
     "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0 --port 4173"
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "install:clean": "npm ci --registry=https://registry.npmjs.org/ --no-audit --no-fund"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.4",
-    "vite": "^5.4.11",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "devDependencies": {}
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.4",
+    "vite": "^5.4.11"
+  }
 }

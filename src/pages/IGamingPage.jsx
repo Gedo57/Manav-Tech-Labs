@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Button } from '../components/common/Button.jsx';
 import { assets } from '../data/assets.js';
 import { siteContent } from '../data/siteContent.js';
@@ -66,7 +67,7 @@ export function IGamingPage() {
             <p className="igaming-hero__description">{content.description}</p>
 
             <div className="igaming-hero__actions">
-              <Button href="#contact" variant="primary">{content.primaryCta}</Button>
+              <Button href="/contact" variant="primary">{content.primaryCta}</Button>
               <Button href="#igaming-case-studies" variant="secondary">{content.secondaryCta}</Button>
             </div>
           </div>
@@ -147,10 +148,10 @@ export function IGamingPage() {
                   <ul>
                     {item.points.map((point) => <li key={point}>{point}</li>)}
                   </ul>
-                  <a className="igaming-case-card__link" href="#contact">
+                  <Link className="igaming-case-card__link" to="/contact">
                     <span>View Case Study</span>
                     <span aria-hidden="true">→</span>
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}

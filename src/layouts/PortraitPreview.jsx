@@ -15,8 +15,8 @@ export function PortraitPreview() {
           body="This view is isolated for mobile portrait only. Landscape phones will use the landscape system."
         />
         <div className="portrait-stage__actions">
-          <Button href="#contact">{siteContent.cta.primary}</Button>
-          <Button variant="secondary" href="#portfolio">Work</Button>
+          <Button href="/contact">{siteContent.cta.primary}</Button>
+          <Button variant="secondary" href="/portfolio">Work</Button>
         </div>
       </section>
 

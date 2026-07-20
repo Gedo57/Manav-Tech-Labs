@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
 import { assets } from '../../data/assets.js';
 import { siteContent } from '../../data/siteContent.js';
 import { cssVars } from '../../config/layout/styleHelpers.js';
+import { ROUTES } from '../../routing/routes.js';
 
-export function LogoMark({ compact = false, layout = {}, className = '', style }) {
+export function LogoMark({ compact = false, layout = {}, className = '', style, onClick }) {
   const logoVars = cssVars({
     logoWidth: layout.width ?? 324,
     logoHeight: layout.height ?? 60,
@@ -14,17 +16,18 @@ export function LogoMark({ compact = false, layout = {}, className = '', style }
   });
 
   return (
-    <a
+    <Link
       className={`logo-mark ${compact ? 'logo-mark--compact' : 'logo-mark--full'} ${className}`.trim()}
-      href="#home"
+      to={ROUTES.home}
       aria-label={siteContent.brand.name}
       style={{ ...logoVars, ...style }}
+      onClick={onClick}
     >
       {assets.logos.full && !compact ? (
         <img className="logo-mark__full-image" src={assets.logos.full} alt="Manav Tech Labs" />
       ) : (
         <img className="logo-mark__icon" src={assets.logos.icon} alt="Manav Tech Labs logo" />
       )}
-    </a>
+    </Link>
   );
 }

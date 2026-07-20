@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { assets } from '../data/assets.js';
 import { siteContent } from '../data/siteContent.js';
 
@@ -6,15 +7,19 @@ function money(value) {
   return `$${Number(value).toFixed(2)}`;
 }
 
-function getProductIdFromHash() {
+function getRequestedProductId() {
   if (typeof window === 'undefined') return '';
 
-  const hash = window.location.hash || '';
-  const queryIndex = hash.indexOf('?');
+  const searchParams = new URLSearchParams(window.location.search || '');
+  const searchProductId = searchParams.get('product');
+  if (searchProductId) return searchProductId;
+
+  const legacyHash = window.location.hash || '';
+  const queryIndex = legacyHash.indexOf('?');
   if (queryIndex === -1) return '';
 
-  const params = new URLSearchParams(hash.slice(queryIndex + 1));
-  return params.get('product') || '';
+  const legacyParams = new URLSearchParams(legacyHash.slice(queryIndex + 1));
+  return legacyParams.get('product') || '';
 }
 
 function Icon({ name }) {
@@ -161,7 +166,7 @@ function SelectedProduct({ product }) {
 export function EnquiryPage({ layoutMode }) {
   const products = siteContent.productsPage.products;
   const selectedProduct = useMemo(() => {
-    const requestedId = getProductIdFromHash();
+    const requestedId = getRequestedProductId();
     return products.find((product) => product.id === requestedId) ?? products[0];
   }, [products]);
   const [productId, setProductId] = useState(selectedProduct.id);
@@ -180,7 +185,7 @@ export function EnquiryPage({ layoutMode }) {
 
       <section className="enquiry-hero" aria-label="Product enquiry">
         <nav className="enquiry-breadcrumb" aria-label="Breadcrumb">
-          <a href="#home">HOME</a>
+          <Link to="/">HOME</Link>
           <span>›</span>
           <strong>ENQUIRY</strong>
         </nav>
@@ -287,7 +292,7 @@ export function EnquiryPage({ layoutMode }) {
           <section className="enquiry-info-card enquiry-faq-card">
             <div className="enquiry-faq-card__head">
               <h2>FREQUENTLY ASKED QUESTIONS</h2>
-              <a href="#contact">VIEW ALL →</a>
+              <Link to="/contact">VIEW ALL →</Link>
             </div>
             <details open>
               <summary>How quickly will you respond to my enquiry?</summary>

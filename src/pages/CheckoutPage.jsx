@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { assets } from '../data/assets.js';
 import { siteContent } from '../data/siteContent.js';
 
@@ -6,15 +7,19 @@ function money(value) {
   return `$${Number(value).toFixed(2)}`;
 }
 
-function getProductIdFromHash() {
+function getRequestedProductId() {
   if (typeof window === 'undefined') return '';
 
-  const hash = window.location.hash || '';
-  const queryIndex = hash.indexOf('?');
+  const searchParams = new URLSearchParams(window.location.search || '');
+  const searchProductId = searchParams.get('product');
+  if (searchProductId) return searchProductId;
+
+  const legacyHash = window.location.hash || '';
+  const queryIndex = legacyHash.indexOf('?');
   if (queryIndex === -1) return '';
 
-  const params = new URLSearchParams(hash.slice(queryIndex + 1));
-  return params.get('product') || '';
+  const legacyParams = new URLSearchParams(legacyHash.slice(queryIndex + 1));
+  return legacyParams.get('product') || '';
 }
 
 function findFeatureValue(product, label, fallback = '') {
@@ -244,7 +249,7 @@ function ConfidenceRow({ icon, title, body }) {
 
 export function CheckoutPage({ layoutMode }) {
   const products = siteContent.productsPage.products;
-  const productId = getProductIdFromHash();
+  const productId = getRequestedProductId();
   const product = useMemo(
     () => products.find((item) => item.id === productId) ?? products[0],
     [productId, products]
@@ -271,9 +276,9 @@ export function CheckoutPage({ layoutMode }) {
 
       <section className="checkout-hero" aria-label="Checkout intro">
         <nav className="checkout-breadcrumb" aria-label="Breadcrumb">
-          <a href="#home">HOME</a>
+          <Link to="/">HOME</Link>
           <span>›</span>
-          <a href="#products">PRODUCTS</a>
+          <Link to="/products">PRODUCTS</Link>
           <span>›</span>
           <strong>CHECKOUT</strong>
         </nav>
@@ -373,7 +378,7 @@ export function CheckoutPage({ layoutMode }) {
           <label className="checkout-agreement">
             <input type="checkbox" defaultChecked />
             <span />
-            <strong>I agree to the <a href="#contact">Terms & Conditions</a> and <a href="#contact">Privacy Policy</a>.</strong>
+            <strong>I agree to the <Link to="/contact">Terms & Conditions</Link> and <Link to="/contact">Privacy Policy</Link>.</strong>
           </label>
 
           <button className="checkout-submit" type="submit">
